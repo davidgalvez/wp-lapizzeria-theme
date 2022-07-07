@@ -1,0 +1,314 @@
+/*
+    Theme Name: La Pizzeria
+    Theme URI: 
+    Author: David Galvez
+    Author URI: https://davidgalvezv.wordpress.com/
+    Description: Tema diseñado para pizzerias
+    Version: 1.0
+    License: GNU Generic Public License V2 or Later
+    License URI: http://gnu.org/licenses/gpl-2.0.html
+    Tags: CSS Grid, Gutenberg, Flexbox, Mobile first
+    Text Domain: lapizzeria
+ */
+:root{
+    --fuentePrincipal: 'Open Sans', sans-serif;
+    --fuenteHeadings: 'Raleway', sans-serif;
+
+    /*Colores*/
+    --rojo: #a61206;
+    --naranja: #f19f30;
+    --verde: #127427;
+
+    --blanco: #ffffff;
+    --negro: #000000;
+    --grisClaro: #c1c1c1;
+    --contenedor: 1200px;
+}
+html{
+    box-sizing: border-box;
+    font-size: 62.5%;
+}
+*,*:before,*:after{
+    box-sizing: inherit;
+}
+body{
+    font-family: var(--fuentePrincipal);
+    font-size: 1.6rem;
+    line-height: 2;
+}
+p{
+    font-size: 1.8rem;
+    line-height: 2;
+}
+h1,h2,h3,h4{
+    font-family: var(--fuenteHeadings);
+    font-weight: 900;
+}
+h1{
+    font-size: 4.8rem;
+}
+h2{
+    font-size: 4rem;
+}
+h3{
+    font-size: 3rem;
+}
+h4{
+    font-size: 2.4rem;
+}
+/*Globales*/
+a{
+    text-decoration: none;
+}
+ul{
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+.contenedor{
+    width: 95%;
+    max-width: var(--contenedor);
+    margin: 0 auto;
+}
+img{
+    max-width: 100%;
+    height: auto;
+}
+
+/*Utilidades*/
+.text-center{
+    text-align: center;
+}
+.seccion{
+    padding: 1rem;
+}
+
+@media (min-width:768px){
+    .seccion{
+        position: relative;
+        background-color: var(--blanco);
+        margin-top: -9rem;
+        padding: 6rem;
+    }
+}
+
+
+
+/*Header*/
+.site-header {
+    padding-top: 3rem;
+}
+@media (min-width: 768px){
+    .site-header .contenedor{
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+    }
+    .logo{
+        grid-column: 2/3;
+    }
+    .information-header{
+        grid-column: 3/4;
+    }
+       
+
+}
+.logo a{
+    display: flex;
+    justify-content: center;
+}
+.logo img{
+    width: 80%;
+    max-width: 30rem;
+}
+
+/*Redes sociales*/
+.sr-text{
+    display: none;
+}
+.sociales{
+    margin-top: 2rem;
+}
+.sociales ul{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 3rem);
+    grid-column-gap: 1rem;
+    justify-content: center;
+}
+@media (min-width: 768px){
+    .sociales ul{
+        justify-content: end;
+    }
+}
+.sociales a::before{
+    content:'';
+    display: inline-block;
+    height: 3rem;
+    width: 3rem;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 3rem;
+
+}
+.sociales a[href*='facebook.com']:before{
+    background-image: url('img/icons/facebook.svg');
+}
+.sociales a[href*='twitter.com']:before{
+    background-image: url('img/icons/twitter.svg');
+}
+.sociales a[href*='youtube.com']:before{
+    background-image: url('img/icons/youtube.svg');
+}
+.sociales a[href*='instagram.com']:before{
+    background-image: url('img/icons/instagram.svg');
+}
+.direccion{
+    padding: 2rem 0;
+}
+.direccion p{
+    margin: 0;
+    text-align: center;
+}
+@media (min-width: 780px){
+    .direccion p{
+        text-align: right;
+        line-height: 1.5;
+    }
+}
+
+.menu-principal{
+    display: none;
+}
+@media (min-width: 768px){
+    
+    .menu-principal{
+        border-top: 1px solid var(--grisClaro);
+        margin-top: 3rem;
+        display: block;
+    }
+}
+/*Menu Escritorio*/
+@media (min-width: 768px){
+    .slicknav_menu{
+        display: none;
+    }   
+    .menu-principal{
+        border-top: 1px solid var(--grisClaro);
+        margin-top: 3rem;
+    }
+    .menu-sitio .menu{
+        display: flex;
+        justify-content: space-between;
+    } 
+    .menu-sitio .menu li{
+        flex: 1;
+    } 
+    .menu-sitio .menu li:hover{
+        background-color: var(--naranja);
+    } 
+    .menu-sitio .menu li.current_page_item{
+        border-bottom: .5rem solid var(--rojo);
+    } 
+    .menu-sitio .menu a{
+        font-family: var(--fuenteHeadings);
+        text-transform: uppercase;
+        color: var(--negro);
+        padding: 1rem;
+        display: block;
+        font-weight: 700;
+        font-size: 2rem;
+        text-align: center;
+    } 
+}
+
+
+
+
+/*Menu Responsive*/
+.slicknav_menu{
+    background-color: var(--rojo);    
+}
+.slicknav_menu a{
+    font-size: 1.5rem;
+    text-transform: uppercase;
+    text-align: center;
+}
+.slicknav_menu a:hover{
+    background-color: transparent;
+    color: var(--naranja)
+}
+
+/*Site footer*/
+.site-footer{
+    margin-top: 3rem;
+    padding: 3rem 0;
+    border-top: 1px solid var(--grisClaro);
+}
+@media (min-width: 768px){
+    .footer-nav .menu{
+        display: flex;
+        justify-content: center;
+    }
+}
+
+.footer-nav .menu a{
+    color: var(--negro);
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 1.4rem;
+    font-family: var(--fuenteHeadings);
+    
+}
+.footer-nav .menu li{
+    text-align: center;
+    
+}
+
+.separador{
+    display: none;
+}
+@media (min-width: 768px){
+    .separador{
+        display: inline;
+        margin: 0 2rem;
+    }
+    .footer-nav li:last-of-type .separador{
+        display: none;
+    }
+
+}
+.site-footer .direccion{
+    margin-top: 1rem;
+}
+.site-footer .direccion p{
+    text-align: center;
+    font-size: 1.2rem;
+}
+
+/*Template paginas*/
+.hero{
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    height: 45rem;
+    margin: 0 auto;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+}
+.hero::after{
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.6);
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    content: '';
+}
+.hero h1{
+    color:var(--blanco);
+    z-index: 1;
+    position: relative;
+}
