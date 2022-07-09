@@ -17,32 +17,30 @@
         <main class="contenido-principal">
             <?php while(have_posts()): the_post();?>
                 <article class="entrada-blog">
-                    <a href="<?php the_permalink(); ?>"><?php the_post_thumbnail(); ?></a>
+                    <a href="<?php the_permalink(); ?>"><?php the_post_thumbnail('especialidades'); ?></a>
+                    <header class="informacion-entrada">
+                        <div class="fecha">
+                            <time>
+                                <?php  the_time("d"); ?>
+                                <span class="test"><?php the_time("M"); ?></span>
+                            </time>
+                        </div>
+                        <div class="titulo-entrada">
+                            <h2><?php the_title(); ?></h2>
+                        </div>
+                    </header>
+
+                    <p class="autor">
+                        Escrito por: 
+                        <span><?php the_author(); ?></span>
+                    </p>
+
+                    <div class="contenido-entrada">
+                        <?php the_excerpt(); ?>
+
+                        <a class="boton boton-primario" href="<?php the_permalink(); ?>">Leer mas</a>
+                    </div>
                 </article>
-
-                <header class="informacion-entrada">
-                    <div class="fecha">
-                        <time>
-                            <?php  the_time("d"); ?>
-                            <span class="test"><?php the_time("M"); ?></span>
-                        </time>
-                    </div>
-                    <div class="titulo-entrada">
-                        <h2><?php the_title(); ?></h2>
-                    </div>
-                </header>
-
-                <p class="autor">
-                    Escrito por: 
-                    <span><?php the_author(); ?></span>
-                </p>
-
-                <div class="contenido-entrada">
-                    <?php the_excerpt(); ?>
-
-                    <a class="boton boton-primario" href="<?php the_permalink(); ?>">Leer mas</a>
-                </div>
-                
             <?php endwhile;?>
         </main>
 
