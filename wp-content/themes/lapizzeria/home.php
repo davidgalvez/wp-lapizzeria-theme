@@ -13,7 +13,7 @@
             <h1><?php echo get_the_title($pagina_blog); ?></h1>
         </div>
     </div>
-    <div class="seccion contenedor">
+    <div class="seccion contenedor con-sidebar">
         <main class="contenido-principal">
             <?php while(have_posts()): the_post();?>
                 <article class="entrada-blog">
@@ -22,8 +22,10 @@
 
                 <header class="informacion-entrada">
                     <div class="fecha">
-                        <?php  the_time("d"); ?>
-                        <span class="test"><?php the_time("M"); ?></span>
+                        <time>
+                            <?php  the_time("d"); ?>
+                            <span class="test"><?php the_time("M"); ?></span>
+                        </time>
                     </div>
                     <div class="titulo-entrada">
                         <h2><?php the_title(); ?></h2>
@@ -32,7 +34,7 @@
 
                 <p class="autor">
                     Escrito por: 
-                    <?php the_author(); ?>
+                    <span><?php the_author(); ?></span>
                 </p>
 
                 <div class="contenido-entrada">
@@ -43,6 +45,9 @@
                 
             <?php endwhile;?>
         </main>
+
+        <?php get_sidebar() ?>
+
     </div>
 
 <?php get_footer(); ?>
