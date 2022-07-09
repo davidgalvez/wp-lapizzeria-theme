@@ -34,4 +34,11 @@ function lapizzeria_menus(){
     ));
 }
 add_action('init','lapizzeria_menus');
+
+/* Agregar css class a botones de paginador*/
+function lapizzeria_paginate_links( $link ) {     
+    return 'class="boton boton-secundario"'; 
+}; 
+add_filter( 'next_posts_link_attributes', 'lapizzeria_paginate_links'); 
+add_filter( 'previous_posts_link_attributes', 'lapizzeria_paginate_links'); 
 ?>

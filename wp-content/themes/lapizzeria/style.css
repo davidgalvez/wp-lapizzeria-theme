@@ -93,7 +93,7 @@ img{
 }
 
 /** Botones */
-.boton{
+.boton, .page-numbers{
     padding: 1rem 3rem;
     display:block;
     flex: 1;
@@ -404,3 +404,12 @@ img{
 .entrada-blog .boton{
     margin-top: 2rem;
 }
+.paginacion{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 2rem;
+}
+.paginacion a:first-of-type{
+    margin-right: 2rem;
+}
+
