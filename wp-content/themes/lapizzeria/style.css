@@ -413,3 +413,49 @@ img{
     margin-right: 2rem;
 }
 
+/** Sidebar */
+.wp-bock-search{
+    position: relative;
+}
+.wp-block-search div{
+    display: flex;
+}
+.wp-block-search label{
+    display:none;
+
+}
+.wp-block-search input[type="search"]{
+    flex: 1;
+    padding: 1rem;
+}
+.wp-block-search button.wp-block-search__button {
+    position: absolute;
+    right: 0;
+    top: 0;
+    margin: 0;
+    height: auto;
+    width: 5rem;
+    background-color: var(--rojo);
+    background-image:  url(img/buscador.png);
+    background-repeat: no-repeat;
+    background-position: center center;
+    border: none;
+    text-indent: -99999px;
+    display: block;
+    
+}
+.wp-block-search button.wp-block-search__button:hover{
+    cursor: pointer;
+}
+
+.widget  h3{
+    text-transform: uppercase;
+    font-weight: 700;
+    margin: 1rem 0;
+}
+.widget  a{
+    color: var(--negro);
+}
+.widget a:hover{
+    color: var(--naranja);
+}
