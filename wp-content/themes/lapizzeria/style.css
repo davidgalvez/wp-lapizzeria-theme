@@ -103,7 +103,11 @@ img{
     font-family: var(--fuenteHeadings);
     text-transform: uppercase;
     border-radius: .5rem;
+    border: none;
 
+}
+.boton:hover{
+    cursor: pointer;
 }
 @media (min-width: 768px){
     .boton{
