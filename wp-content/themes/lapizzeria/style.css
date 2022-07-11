@@ -429,7 +429,7 @@ img{
     padding: 1rem;
 }
 .wp-block-search button.wp-block-search__button {
-    position: absolute;
+    position: relative;
     right: 0;
     top: 0;
     margin: 0;
