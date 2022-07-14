@@ -490,19 +490,27 @@ img{
     text-align: center;
 }
 .comment-form p{
-    display: flex;    
+    display: flex;   
+    flex-wrap: wrap; 
 }
 .comment-form p label{
     flex: 0 0 15rem;
-    text-align: right;
+    
     margin-right: 2rem;
     font-weight: bold;
+}
+@media (min-width: 768px){
+    .comment-form p label{
+        flex: 0 0 20rem;
+        text-align: right;
+    }
 }
 .comment-form input:not([type="submit"]),
 .comment-form textarea{
     flex: 1;
     min-width: 0;
     border: 1px solid var(--grisClaro);
+    padding: 1rem;
 }
 .comment-form-cookies-consent {
     align-items: center;
@@ -518,4 +526,21 @@ p.comment-form-cookies-consent label{
 .form-submit{
     display: flex;
     justify-content: center;
+}
+.lista-comentarios .comment{
+    padding: 2rem;
+    margin-bottom: 2rem;
+    background-color: #f6f6f6;
+    border-bottom: .5rem solid var(--rojo);
+}
+.lista-comentarios .comment cite {
+    color: var(--rojo);
+    font-size: 2rem;
+    font-weight: bold;
+}
+.lista-comentarios .comment .comment-author{
+    margin-bottom: 2rem;
+}
+.lista-comentarios .comment ul.children li{
+    background-color: var(--blanco);
 }
