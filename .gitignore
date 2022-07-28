@@ -16,7 +16,7 @@ wp-content/plugins/*
 # !wp-content/plugins/my-directory-plugin/
 !wp-content/plugins/lapizzeria-gutenberg/
 wp-content/plugins/lapizzeria-gutenberg/node_modules/*
-wp-content/plugins/lapizzeria-gutenberg/build/*
+#wp-content/plugins/lapizzeria-gutenberg/build/*
 
 
 #Ignore phpUnit testing files and folder
