@@ -26,7 +26,7 @@ function lapizzeria_categoria_personalizada($categories, $post)
         )
     );
 }
-add_filter('block_categories','lapizzeria_categoria_personalizada',10,2);
+add_filter('block_categories_all','lapizzeria_categoria_personalizada',10,2);
 
 /** Registrar bloques, scripts y CSS */
 
@@ -37,6 +37,9 @@ function lapizzeria_registrar_bloques()
     {
         return;
     }
+
+    // Carga automáticamente las dependencias y versiones
+    $asset_file = include( plugin_dir_path( __FILE__ ) . 'build/index.asset.php');
 
     // Registrar los bloques en el editor
     wp_register_script
@@ -76,6 +79,7 @@ function lapizzeria_registrar_bloques()
         register_block_type
         ($block,array
             (
+                'api_version' => 2,
                 'editor_script' => 'lapizzeria-editor-script', //script principal para el editor
                 'editor_style' => 'lapizzeria-editor-styles', //estilos para el editor
                 'style' => 'lapizzeria-frontend-styles' // estilos  para el frontend
