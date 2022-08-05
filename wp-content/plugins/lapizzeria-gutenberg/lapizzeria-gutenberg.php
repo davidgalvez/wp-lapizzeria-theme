@@ -15,15 +15,15 @@ if(!defined('ABSPATH')) exit;
 /** Categorías personalizadas */
 function lapizzeria_categoria_personalizada($categories, $post)
 {
-    return array_merge
-    (
-        $categories,
-        array
-        (
-            'slug' =>'lapizzeria',
+    return array_merge(
+        $categories,        
+        array(
+            array(
+             'slug' =>'lapizzeria',
             'title'=> 'La Pizzeria',
             'icon' => 'store'
-        )
+            )
+        )  
     );
 }
 add_filter('block_categories_all','lapizzeria_categoria_personalizada',10,2);
@@ -33,7 +33,7 @@ add_filter('block_categories_all','lapizzeria_categoria_personalizada',10,2);
 function lapizzeria_registrar_bloques()
 {
     //Si gutemberg no existe, salir
-    if(function_exists('register_block_type'))
+    if(!function_exists('register_block_type'))
     {
         return;
     }
@@ -50,23 +50,23 @@ function lapizzeria_registrar_bloques()
         filemtime(plugin_dir_path(__FILE__).'build/index.js') //version
     );
 
-    // Estilos para el editor
+    // Estilos para el editor unicamente
     wp_register_style
     (
         'lapizzeria-editor-styles', //nombre
-        plugins_url('build/editor.css',__FILE__), // archivo de css para el editor
+        plugins_url('src/css/editor.css',__FILE__), // archivo de css para el editor
         array('wp-edit-blocks'), //dependencias
-        filemtime(plugin_dir_path(__FILE__), 'build/editor.css')
+        filemtime(plugin_dir_path(__FILE__).'src/css/editor.css')
     );
 
     // Estilos para los bloques (backend y frontend)
     wp_register_style
     (
         'lapizzeria-frontend-styles', //nombre
-        plugins_url('build/style.css',__FILE__), // archivo de css para el editor
+        plugins_url('src/css/styles.css',__FILE__), // archivo de css para el editor
         array(), //dependencias
-        filemtime(plugin_dir_path(__FILE__), 'build/editor.css')
-    );
+        filemtime(plugin_dir_path(__FILE__).'src/css/styles.css')
+    ); 
 
     // Arreglo de bloques
     $blocks= 
@@ -86,7 +86,6 @@ function lapizzeria_registrar_bloques()
 
             )
         );
-    }
-    
+    }    
 }
 add_action('init', 'lapizzeria_registrar_bloques');
