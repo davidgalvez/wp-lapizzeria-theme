@@ -1,6 +1,6 @@
-//const { registerBlockType } = wp.blocks;
 import { registerBlockType } from '@wordpress/blocks';
-import { useBlockProps } from '@wordpress/block-editor';
+import { RichText} from '@wordpress/block-editor';
+
 // Logo para el bloque
 import { ReactComponent as Logo } from '../pizzeria-icon.svg';
 
@@ -11,8 +11,18 @@ registerBlockType('lapizzeria/boxes',{
       icon: {src: Logo},
       category: 'lapizzeria',
       edit: () =>{
+            const onChangeHeadingBox =(nuevoHeading) =>{
+                  console.log(nuevoHeading);
+            }
             return(
-                  <h1>Se ve en el editor</h1>
+                 <div>
+                       <h2>
+                             <RichText 
+                                    placeholder="Agrega el encabezado"
+                                    onChange={onChangeHeadingBox}
+                             />
+                       </h2>
+                 </div>
             )            
       },
       save: () =>{
