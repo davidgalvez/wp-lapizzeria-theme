@@ -68,12 +68,21 @@ __webpack_require__.r(__webpack_exports__);
     src: _pizzeria_icon_svg__WEBPACK_IMPORTED_MODULE_3__.ReactComponent
   },
   category: 'lapizzeria',
+  attributes: {
+    headingBox: {
+      type: 'string',
+      source: 'html',
+      selector: '.box h2'
+    }
+  },
   edit: () => {
     const onChangeHeadingBox = nuevoHeading => {
       console.log(nuevoHeading);
     };
 
-    return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("h2", null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.RichText, {
+    return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+      className: "box"
+    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("h2", null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.RichText, {
       placeholder: "Agrega el encabezado",
       onChange: onChangeHeadingBox
     })));
