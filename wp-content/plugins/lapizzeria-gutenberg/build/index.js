@@ -75,9 +75,22 @@ __webpack_require__.r(__webpack_exports__);
       selector: '.box h2'
     }
   },
-  edit: () => {
+  edit: props => {
+    console.log(props); //Extraer el contenido desde props
+
+    const {
+      attributes: {
+        headingBox
+      },
+      setAttributes
+    } = props;
+    console.log(headingBox);
+
     const onChangeHeadingBox = nuevoHeading => {
-      console.log(nuevoHeading);
+      //console.log(nuevoHeading);
+      setAttributes({
+        headingBox: nuevoHeading
+      });
     };
 
     return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
