@@ -1,6 +1,6 @@
 import { registerBlockType } from '@wordpress/blocks';
-import { useBlockProps, RichText } from '@wordpress/block-editor';
-
+import { useBlockProps, RichText, InspectorControls } from '@wordpress/block-editor';
+import { PanelBody, ColorPalette } from '@wordpress/components';
 // Logo para el bloque
 import { ReactComponent as Logo } from '../pizzeria-icon.svg';
 
@@ -39,24 +39,42 @@ registerBlockType('lapizzeria/boxes',{
             }
            
             return(
-                 <div className='box'>
-                       <h2>
-                             <RichText 
-                                    { ...blockProps }
-                                    placeholder="Agrega el encabezado"
-                                    onChange={onChangeHeadingBox}
-                                    value={headingBox}
-                             />
-                       </h2>
-                       <p>
-                             <RichText 
-                                    { ...blockProps }
-                                    placeholder="Agrega el texto"
-                                    onChange={onChangeTextoBox}
-                                    value={textoBox}
-                             />
-                       </p>
-                 </div>
+                  <>
+                        <InspectorControls>
+                              <PanelBody                              
+                                    title={'Color de Fondo'}
+                                    initialOpen={true}
+                              >   
+                                    <div className='components-base-control'>
+                                          <div className='components-base-control__field'>
+                                                <label className='components-base-control__label'>
+                                                      Color de fondo
+                                                </label>
+                                                <ColorPalette />
+                                          </div>
+                                    </div>                                    
+                              </PanelBody>
+                              
+                        </InspectorControls>
+                        <div className='box'>
+                              <h2>
+                                    <RichText 
+                                                { ...blockProps }
+                                                placeholder="Agrega el encabezado"
+                                                onChange={onChangeHeadingBox}
+                                                value={headingBox}
+                                    />
+                              </h2>
+                              <p>
+                                    <RichText 
+                                                { ...blockProps }
+                                                placeholder="Agrega el texto"
+                                                onChange={onChangeTextoBox}
+                                                value={textoBox}
+                                    />
+                              </p>
+                        </div>
+                 </>
             )            
       },
       save: (props) =>{
