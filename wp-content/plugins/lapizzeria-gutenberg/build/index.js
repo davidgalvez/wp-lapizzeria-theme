@@ -83,6 +83,9 @@ __webpack_require__.r(__webpack_exports__);
       type: 'string',
       source: 'html',
       selector: '.box p'
+    },
+    colorFondo: {
+      type: 'string'
     }
   },
   edit: props => {
@@ -92,7 +95,8 @@ __webpack_require__.r(__webpack_exports__);
     const {
       attributes: {
         headingBox,
-        textoBox
+        textoBox,
+        colorFondo
       },
       setAttributes
     } = props;
@@ -111,6 +115,13 @@ __webpack_require__.r(__webpack_exports__);
       });
     };
 
+    const onChangeColorFondo = nuevoColor => {
+      console.log(nuevoColor);
+      setAttributes({
+        colorFondo: nuevoColor
+      });
+    };
+
     return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.Fragment, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_3__.InspectorControls, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__.PanelBody, {
       title: 'Color de Fondo',
       initialOpen: true
@@ -120,8 +131,14 @@ __webpack_require__.r(__webpack_exports__);
       className: "components-base-control__field"
     }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("label", {
       className: "components-base-control__label"
-    }, "Color de fondo"), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__.ColorPalette, null))))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("div", {
-      className: "box"
+    }, "Color de fondo"), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__.ColorPalette, {
+      onChange: onChangeColorFondo,
+      value: colorFondo
+    }))))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("div", {
+      className: "box",
+      style: {
+        backgroundColor: colorFondo
+      }
     }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("h2", null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_3__.RichText, (0,_babel_runtime_helpers_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({}, blockProps, {
       placeholder: "Agrega el encabezado",
       onChange: onChangeHeadingBox,
@@ -139,11 +156,15 @@ __webpack_require__.r(__webpack_exports__);
     const {
       attributes: {
         headingBox,
-        textoBox
+        textoBox,
+        colorFondo
       }
     } = props;
     return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("div", {
-      className: "box"
+      className: "box",
+      style: {
+        backgroundColor: colorFondo
+      }
     }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("h2", null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_3__.RichText.Content, (0,_babel_runtime_helpers_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({}, blockProps, {
       value: headingBox
     }))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("p", null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_3__.RichText.Content, (0,_babel_runtime_helpers_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({}, blockProps, {

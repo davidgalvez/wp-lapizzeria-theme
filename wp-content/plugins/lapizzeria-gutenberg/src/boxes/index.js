@@ -20,6 +20,9 @@ registerBlockType('lapizzeria/boxes',{
                   type: 'string',
                   source: 'html',
                   selector: '.box p'
+            },
+            colorFondo: {
+                  type: 'string'
             }
       },
       edit: (props) =>{
@@ -27,7 +30,7 @@ registerBlockType('lapizzeria/boxes',{
             console.log(props);
             const blockProps = useBlockProps();
             //Extraer el contenido desde props
-            const {attributes: {headingBox, textoBox}, setAttributes } = props;
+            const {attributes: {headingBox, textoBox, colorFondo}, setAttributes } = props;
             console.log(headingBox);
 
             const onChangeHeadingBox =(nuevoHeading) =>{
@@ -36,6 +39,10 @@ registerBlockType('lapizzeria/boxes',{
             }
             const onChangeTextoBox = nuevoTexto =>{
                   setAttributes({ textoBox: nuevoTexto});
+            }
+            const onChangeColorFondo = nuevoColor =>{
+                  console.log(nuevoColor);
+                  setAttributes({ colorFondo: nuevoColor});
             }
            
             return(
@@ -50,13 +57,16 @@ registerBlockType('lapizzeria/boxes',{
                                                 <label className='components-base-control__label'>
                                                       Color de fondo
                                                 </label>
-                                                <ColorPalette />
+                                                <ColorPalette
+                                                      onChange={onChangeColorFondo}
+                                                      value={colorFondo}
+                                                />
                                           </div>
                                     </div>                                    
                               </PanelBody>
                               
                         </InspectorControls>
-                        <div className='box'>
+                        <div  className='box' style={{backgroundColor:colorFondo}} >
                               <h2>
                                     <RichText 
                                                 { ...blockProps }
@@ -67,7 +77,7 @@ registerBlockType('lapizzeria/boxes',{
                               </h2>
                               <p>
                                     <RichText 
-                                                { ...blockProps }
+                                               { ...blockProps } 
                                                 placeholder="Agrega el texto"
                                                 onChange={onChangeTextoBox}
                                                 value={textoBox}
@@ -82,15 +92,15 @@ registerBlockType('lapizzeria/boxes',{
             console.log(props);
             const blockProps = useBlockProps.save();
             //Extraer el contenido desde props
-            const {attributes: {headingBox, textoBox} } = props;
+            const {attributes: {headingBox, textoBox, colorFondo} } = props;
             
             return(
-                  <div className='box'>
+                  <div   className='box' style={{backgroundColor:colorFondo}} >
                        <h2>
-                             <RichText.Content  { ...blockProps }  value = {headingBox} />
+                             <RichText.Content { ...blockProps }  value = {headingBox} />
                        </h2>
                        <p>
-                              <RichText.Content  { ...blockProps }  value = {textoBox} />
+                              <RichText.Content { ...blockProps }  value = {textoBox} />
                        </p>
                  </div>
             )            
