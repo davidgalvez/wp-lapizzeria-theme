@@ -97,11 +97,23 @@ __webpack_require__.r(__webpack_exports__);
       className: "box"
     }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("h2", null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.RichText, {
       placeholder: "Agrega el encabezado",
-      onChange: onChangeHeadingBox
+      onChange: onChangeHeadingBox,
+      value: headingBox
     })));
   },
-  save: () => {
-    return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("h1", null, "Se ve en el frontend");
+  save: props => {
+    console.log(props); //Extraer el contenido desde props
+
+    const {
+      attributes: {
+        headingBox
+      }
+    } = props;
+    return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+      className: "box"
+    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("h2", null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.RichText.Content, {
+      value: headingBox
+    })));
   }
 });
 
