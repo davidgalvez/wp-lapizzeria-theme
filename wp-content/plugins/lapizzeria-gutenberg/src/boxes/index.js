@@ -89,7 +89,7 @@ registerBlockType('lapizzeria/boxes',{
                               </PanelBody>
                               
                         </InspectorControls>
-                        <div  className='box' style={{backgroundColor:colorFondo}} >
+                        <div  className='box wp-block' style={{backgroundColor:colorFondo}} >
                               <h2 style={{color:colorTexto}}>
                                     <RichText 
                                                 { ...blockProps }
