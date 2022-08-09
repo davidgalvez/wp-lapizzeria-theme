@@ -1,0 +1,14 @@
+:root{
+    --fuentePrincipal: 'Open Sans', sans-serif;
+    --fuenteHeadings: 'Raleway', sans-serif;
+
+    /*Colores*/
+    --rojo: #a61206;
+    --naranja: #f19f30;
+    --verde: #127427;
+
+    --blanco: #ffffff;
+    --negro: #000000;
+    --grisClaro: #c1c1c1;
+    --contenedor: 1200px;
+}
