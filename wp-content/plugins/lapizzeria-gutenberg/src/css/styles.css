@@ -12,3 +12,42 @@
     --grisClaro: #c1c1c1;
     --contenedor: 1200px;
 }
+.cajas-nosotros{
+    display: grid; 
+    gap: 0em!important;
+}
+@media (min-width: 768px){
+    .cajas-nosotros{       
+        grid-template-columns: repeat(auto-fit, minmax(200px,1fr));
+    }
+}
+.cajas-nosotros .wp-block-column{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px,1fr));
+    margin: 0!important;    
+}
+.wp-block-lapizzeria-boxes, .cajas-nosotros .wp-block-column .box{
+    height: 24rem;
+    padding: 4rem 2rem;
+}
+.wp-block-lapizzeria-boxes h2, .cajas-nosotros .wp-block-column .box h2{
+    font-size: 2rem;
+    margin: 0;
+    line-height: 1;
+    font-weight: 700;
+}
+.wp-block-lapizzeria-boxes p, .cajas-nosotros .wp-block-column .box p{
+    font-size: 1.4rem;
+    line-height: 1.5;
+}
+.cajas-nosotros .wp-block-image {
+    margin: 0;
+    overflow: hidden;
+    height: 24rem;
+}
+.cajas-nosotros .wp-block-image img {
+    display: block;
+    object-fit: cover;
+    height: 30rem;
+    width: 100%;
+}
