@@ -89,6 +89,10 @@ __webpack_require__.r(__webpack_exports__);
     },
     colorTexto: {
       type: 'string'
+    },
+    alineacionContenido: {
+      type: 'string',
+      default: 'center'
     }
   },
   edit: props => {
@@ -100,7 +104,8 @@ __webpack_require__.r(__webpack_exports__);
         headingBox,
         textoBox,
         colorFondo,
-        colorTexto
+        colorTexto,
+        alineacionContenido
       },
       setAttributes
     } = props;
@@ -132,6 +137,12 @@ __webpack_require__.r(__webpack_exports__);
       });
     };
 
+    const onChangeAlinearContenido = nuevaAlineacion => {
+      setAttributes({
+        alineacionContenido: nuevaAlineacion
+      });
+    };
+
     return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.Fragment, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_3__.InspectorControls, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__.PanelBody, {
       title: 'Color de Fondo',
       initialOpen: true
@@ -156,10 +167,13 @@ __webpack_require__.r(__webpack_exports__);
     }, "Color de texto"), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_3__.ColorPalette, {
       onChange: onChangeColorTexto,
       value: colorTexto
-    }))))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("div", {
-      className: "box wp-block",
+    }))))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_3__.BlockControls, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_3__.AlignmentToolbar, {
+      onChange: onChangeAlinearContenido
+    })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("div", {
+      className: "box ",
       style: {
-        backgroundColor: colorFondo
+        backgroundColor: colorFondo,
+        textAlign: alineacionContenido
       }
     }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("h2", {
       style: {
@@ -188,13 +202,15 @@ __webpack_require__.r(__webpack_exports__);
         headingBox,
         textoBox,
         colorFondo,
-        colorTexto
+        colorTexto,
+        alineacionContenido
       }
     } = props;
     return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("div", {
       className: "box",
       style: {
-        backgroundColor: colorFondo
+        backgroundColor: colorFondo,
+        textAlign: alineacionContenido
       }
     }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("h2", {
       style: {

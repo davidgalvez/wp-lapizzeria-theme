@@ -1,5 +1,6 @@
 .wp-block {
     max-width: 1080px;
+    
 }
 .block-editor-writing-flow{
     padding-left: 3rem;
@@ -7,5 +8,11 @@
 .box {
     height: 24rem;
     text-align: center;
-    padding: 4rem 2rem;
+    padding: 4rem 2rem ;
+    margin: 0px;
 }
+.box .wp-block-lapizzeria-boxes{
+    height: auto!important;
+    padding: 0px!important;
+}
+
