@@ -11,92 +11,28 @@
 */
 
 if(!defined('ABSPATH')) die();
+include("lapizzeria-config.php");
+include("includes/posttypes.php");
+use laPizeria\PostTypes\lapizzeriaPosttypes;
+use laPizeria\PostTypes\lapizzeriaTaxonomies;
 
-
-add_action( 'init', 'lapizzeria_especialidades' );
-
-function lapizzeria_especialidades() {
-	$labels = array(
-		'name'               => _x( 'Especialidades', 'lapizzeria' ),
-		'singular_name'      => _x( 'Especialidad', 'post type singular name', 'lapizzeria' ),
-		'menu_name'          => _x( 'Especialidades', 'admin menu', 'lapizzeria' ),
-		'name_admin_bar'     => _x( 'Especialidades', 'add new on admin bar', 'lapizzeria' ),
-		'add_new'            => _x( 'Agregar Nueva', 'book', 'lapizzeria' ),
-		'add_new_item'       => __( 'Agregar Especialidad', 'lapizzeria' ),
-		'new_item'           => __( 'Nueva Especialidad', 'lapizzeria' ),
-		'edit_item'          => __( 'Editar Especialidad', 'lapizzeria' ),
-		'view_item'          => __( 'Ver Especialidad', 'lapizzeria' ),
-		'all_items'          => __( 'Todas las Especialidades', 'lapizzeria' ),
-		'search_items'       => __( 'Buscar Especialidades', 'lapizzeria' ),
-		'parent_item_colon'  => __( 'Especialidad Padre', 'lapizzeria' ),
-		'not_found'          => __( 'No se encontraron especialidaides', 'lapizzeria' ),
-		'not_found_in_trash' => __( 'No se encontraron especialidaides', 'lapizzeria' )
-	);
-
-	$args = array(
-		'labels'             => $labels,
-    'description'        => __( 'Descripción.', 'lapizzeria' ),
-		'public'             => true,
-		'publicly_queryable' => true,
-		'show_ui'            => true,
-		'show_in_menu'       => true,
-		'query_var'          => true,
-		'rewrite'            => array( 'slug' => 'menu-pizzeria' ),
-		'capability_type'    => 'post',
-		'has_archive'        => true,
-		'hierarchical'       => false,
-		'menu_position'      => 6,
-		'supports'           => array( 'title', 'editor', 'thumbnail' ),
-        'taxonomies'         =>  array('categoria-menu'),
-        'show_in_rest'       => true,
-        'rest_base'          => 'especialidades-api'
-	);
-
-	register_post_type( 'especialidades', $args );
-}
+$taxonomy=new lapizzeriaTaxonomies(LAPIZZERIA_TAXONOMY_NAME,LAPIZZERIA_TAXONOMY_LABELS,LAPIZZERIA_TAXONOMY_ARGS);
+$posttype=new lapizzeriaPosttypes(LAPIZZERIA_ESPECIALIDADES_CPT_NAME,LAPIZZERIA_ESPECIALIDADES_CPT_LABELS,LAPIZZERIA_ESPECIALIDADES_CPT_ARGS);
+$taxonomy->addPosttypes(array($posttype->getId()));
+$posttype->addTaxonomies(array($taxonomy->getId()));
+$posttype->addArguments(array('show_in_rest' => true,'rest_base'  => 'especialidades-api'));//Nombre de la ruta en la que se ubicará http://la-pizzeria.local/wp-json/wp/v2/
+$taxonomy->addArguments(array('show_in_rest' => true,'rest_base'  => 'categoria-menu'));
+$taxonomy->addToPlugin(0);
+$posttype->addToPlugin(10);
 
 
 
-/** Registrar una Taxonomia */
 
-function lapizzeria_menu_taxonomia() {
-
-	$labels = array(
-		'name'              => _x( 'Categoria Menu', 'taxonomy general name', 'lapizzeria' ),
-		'singular_name'     => _x( 'Categoria Menu', 'taxonomy singular name', 'lapizzeria' ),
-		'search_items'      => __( 'Buscar Categoria Menu', 'lapizzeria' ),
-		'all_items'         => __( 'Todas Categorias Menu', 'lapizzeria' ),
-		'parent_item'       => __( 'Categoria Menu Padre', 'lapizzeria' ),
-		'parent_item_colon' => __( 'Categoria Menu:', 'lapizzeria' ),
-		'edit_item'         => __( 'Editar Categoria Menu', 'lapizzeria' ),
-		'update_item'       => __( 'Actualizar Categoria Menu', 'lapizzeria' ),
-		'add_new_item'      => __( 'Agregar Categoria Menu', 'lapizzeria' ),
-		'new_item_name'     => __( 'Nueva Categoria Menu ', 'lapizzeria' ),
-		'menu_name'         => __( 'Categoria Menu', 'lapizzeria' ),
-	);
-
-	$args = array(
-		'hierarchical'      => true,
-		'labels'            => $labels,
-		'show_ui'           => true,
-		'show_admin_column' => true,
-		'query_var'         => true,
-		'rewrite'           => array( 'slug' => 'categoria-menu' ),
-		'show_in_rest'	    => true,
-		'rest-base'	    => 'categoria-menu'
-	);
-
-	register_taxonomy( 'categoria-menu', array( 'especialidades' ), $args );
-}
-
-add_action( 'init', 'lapizzeria_menu_taxonomia', 0 );
-
-
-/** AGREGAR CAMPOS A LA RESPUESTA DE LA REST API */
+add_action('rest_api_init', 'lapizzeria_agregar_campos_rest_api');
 function lapizzeria_agregar_campos_rest_api() {
 
     register_rest_field( 
-        'especialidades', 
+        LAPIZZERIA_ESPECIALIDADES_CPT_NAME, 
         'precio', 
         array(
             'get_callback' => 'lapizzeria_obtener_precio',
@@ -106,7 +42,7 @@ function lapizzeria_agregar_campos_rest_api() {
     );
 
     register_rest_field( 
-        'especialidades', 
+        LAPIZZERIA_ESPECIALIDADES_CPT_NAME, 
         'categoria_menu', 
         array(
             'get_callback' => 'lapizzeria_taxonomia_menu',
@@ -116,7 +52,7 @@ function lapizzeria_agregar_campos_rest_api() {
     );
 
     register_rest_field( 
-        'especialidades', 
+        LAPIZZERIA_ESPECIALIDADES_CPT_NAME, 
         'imagen_destacada', 
         array(
             'get_callback' => 'lapizzeria_obtener_imagen_destacada',
@@ -125,7 +61,7 @@ function lapizzeria_agregar_campos_rest_api() {
         ) 
     );
 }
-add_action('rest_api_init', 'lapizzeria_agregar_campos_rest_api');
+
 
 function lapizzeria_obtener_precio() {
     if(!function_exists('get_field')) {
