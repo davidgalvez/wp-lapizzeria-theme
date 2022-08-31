@@ -23,7 +23,7 @@ class cptApiFields{
     public function registerRestField(string $fieldName, string $getCallback, string $updateCallback=NULL, string $schema=NULL)
     {
         $args=$this->setRestFieldArguments($getCallback,$updateCallback,$schema);
-        register_rest_field($this->cptName,$fieldName,$args);
+        register_rest_field($this->cptName, $fieldName, $args);
     }
     public function setRestFieldArguments(string $getCallback, string $updateCallback=NULL, string $schema=NULL)
     {

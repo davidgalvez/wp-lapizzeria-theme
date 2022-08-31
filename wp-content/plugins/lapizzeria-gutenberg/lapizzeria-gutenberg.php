@@ -86,6 +86,27 @@ function lapizzeria_registrar_bloques()
 
             )
         );
-    }    
+    }
+    
+    lapizzeriaRegistrarBloqueDinamico();
 }
+
 add_action('init', 'lapizzeria_registrar_bloques');
+
+/**Registrar un bloque dinámico */
+function lapizzeriaRegistrarBloqueDinamico()
+{
+    register_block_type('lapizzeria/menu', array(
+        'api_version' => 2,
+        'editor_script' => 'lapizzeria-editor-script', //script principal para el editor
+        'editor_style' => 'lapizzeria-editor-styles', //estilos para el editor
+        'style' => 'lapizzeria-frontend-styles', // estilos  para el frontend
+        'render_callback' => 'lapizzeriaEspecialiadesFrontEnd' //query a la base de datos
+    ));
+}
+
+/**Consulta la base de datos para mostrar los resultados en el front end*/
+function lapizzeriaEspecialiadesFrontEnd()
+{
+    return 'en el front end';
+}
