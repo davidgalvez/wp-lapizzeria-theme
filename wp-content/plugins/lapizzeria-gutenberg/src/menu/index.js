@@ -9,9 +9,16 @@ registerBlockType('lapizzeria/menu', {
     title: 'La Pizzeria Menu',
     icon: {src: Logo},
     category: 'lapizzeria',
-    edit: () =>{
-        return  (<><h1>en el editor</h1></>) 
-    },
+    edit: withSelect((select)=>{
+        return {
+            //Enviar una petición a la api
+            especialidades: select("core").getEntityRecords('postType','especialidades')
+        };
+    })
+    (({especialidades}) => {
+        console.log(especialidades);
+        return (<h1>En el editor</h1>)
+    }),   
     save: () =>{
         return null;
     }

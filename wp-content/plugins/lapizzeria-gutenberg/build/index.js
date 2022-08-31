@@ -256,9 +256,18 @@ __webpack_require__.r(__webpack_exports__);
     src: _pizzeria_icon_svg__WEBPACK_IMPORTED_MODULE_3__.ReactComponent
   },
   category: 'lapizzeria',
-  edit: () => {
-    return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("h1", null, "en el editor"));
-  },
+  edit: (0,_wordpress_data__WEBPACK_IMPORTED_MODULE_2__.withSelect)(select => {
+    return {
+      //Enviar una petición a la api
+      especialidades: select("core").getEntityRecords('postType', 'especialidades')
+    };
+  })(_ref => {
+    let {
+      especialidades
+    } = _ref;
+    console.log(especialidades);
+    return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("h1", null, "En el editor");
+  }),
   save: () => {
     return null;
   }
