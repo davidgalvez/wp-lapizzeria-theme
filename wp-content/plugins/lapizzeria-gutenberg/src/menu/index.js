@@ -1,5 +1,6 @@
 import { registerBlockType } from '@wordpress/blocks';
 import { withSelect } from '@wordpress/data';
+import { RichText } from '@wordpress/block-editor';
 
 // Logo para el bloque
 import { ReactComponent as Logo } from '../pizzeria-icon.svg';
@@ -23,7 +24,19 @@ registerBlockType('lapizzeria/menu', {
                 <ul className='nuestro-menu'>
                     {especialidades.map(especialidad =>(
                         <li>
-                            <h3>{especialidad.title.rendered}</h3>
+                            <img src={especialidad.imagen_destacada} />
+                            <div className='platillo'>
+                                <div className='precio-titulo'>
+                                    <h3>{especialidad.title.rendered}</h3>
+                                    <p>$ {especialidad.precio}</p>
+                                </div>
+                                <div className='contenido-platillo'>
+                                    <p>
+                                        <RichText.Content value={especialidad.content.rendered.substring(0,180)} />
+
+                                    </p>
+                                </div>
+                            </div>                            
                         </li>
                     ))}
                 </ul>
