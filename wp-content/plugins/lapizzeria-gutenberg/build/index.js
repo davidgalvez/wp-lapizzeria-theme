@@ -262,22 +262,49 @@ __webpack_require__.r(__webpack_exports__);
     src: _pizzeria_icon_svg__WEBPACK_IMPORTED_MODULE_5__.ReactComponent
   },
   category: 'lapizzeria',
-  edit: (0,_wordpress_data__WEBPACK_IMPORTED_MODULE_2__.withSelect)(select => {
+  attributes: {
+    cantidadMostrar: {
+      type: 'number',
+      default: 4
+    }
+  },
+  edit: (0,_wordpress_data__WEBPACK_IMPORTED_MODULE_2__.withSelect)((select, props) => {
+    //extraer valores de atributos
+    const {
+      attributes: {
+        cantidadMostrar
+      },
+      setAttributes
+    } = props;
+
     const onChangeCantidadMostrar = nuevaCantidad => {
-      console.log(nuevaCantidad);
+      setAttributes({
+        cantidadMostrar: parseInt(nuevaCantidad)
+      });
     };
 
     return {
       //Enviar una petición a la api
-      especialidades: select("core").getEntityRecords('postType', 'especialidades'),
-      onChangeCantidadMostrar
+      especialidades: select("core").getEntityRecords('postType', 'especialidades', {
+        per_page: cantidadMostrar
+      }),
+      onChangeCantidadMostrar,
+      props
     };
   })(_ref => {
     let {
       especialidades,
-      onChangeCantidadMostrar
+      onChangeCantidadMostrar,
+      props
     } = _ref;
-    console.log(especialidades);
+    console.log(especialidades); //extraer los props
+
+    const {
+      attributes: {
+        cantidadMostrar
+      },
+      setAttributes
+    } = props;
     return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_3__.InspectorControls, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__.PanelBody, {
       title: 'Cantidad a Mostrar',
       initialOpen: true
@@ -290,7 +317,8 @@ __webpack_require__.r(__webpack_exports__);
     }, "Cantidad a Mostrar"), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__.RangeControl, {
       onChange: onChangeCantidadMostrar,
       min: 2,
-      max: 10
+      max: 10,
+      value: cantidadMostrar
     }))))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("h2", null, "Nuestras Especialidades"), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("ul", {
       className: "nuestro-menu"
     }, especialidades.map(especialidad => (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("li", null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("img", {

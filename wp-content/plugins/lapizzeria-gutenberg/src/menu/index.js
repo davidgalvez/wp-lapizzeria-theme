@@ -11,18 +11,37 @@ registerBlockType('lapizzeria/menu', {
     title: 'La Pizzeria Menu',
     icon: {src: Logo},
     category: 'lapizzeria',
-    edit: withSelect((select)=>{
+    attributes: 
+    {
+        cantidadMostrar:
+        {
+            type: 'number',
+            default: 4
+        }
+    },
+    edit: withSelect((select, props)=>{
+
+        //extraer valores de atributos
+        const {attributes: {cantidadMostrar},setAttributes} = props;
+        
         const onChangeCantidadMostrar = nuevaCantidad =>{
-            console.log(nuevaCantidad);
+            setAttributes({cantidadMostrar:parseInt(nuevaCantidad)});            
         }
         return {
             //Enviar una petición a la api
-            especialidades: select("core").getEntityRecords('postType','especialidades'),
-            onChangeCantidadMostrar
+            especialidades: select("core").getEntityRecords('postType','especialidades',{
+                per_page:cantidadMostrar
+            }),
+            onChangeCantidadMostrar,
+            props
         };
     })
-    (({especialidades,onChangeCantidadMostrar}) => {
+    (({especialidades,onChangeCantidadMostrar,props}) => {
         console.log(especialidades);
+
+        //extraer los props
+        const {attributes: {cantidadMostrar},setAttributes} = props;
+
         return (
             <>
                 <InspectorControls>
@@ -39,6 +58,7 @@ registerBlockType('lapizzeria/menu', {
                                             onChange={onChangeCantidadMostrar}
                                             min={2}
                                             max={10}
+                                            value={cantidadMostrar}
 
                                         />
                                   </div>
