@@ -122,8 +122,8 @@ function lapizzeriaEspecialiadesFrontEnd()
     }
 
     $cuerpo='';
-    $cuerpo .= '<h2>Nuestras Especialidades</h2>';
-    $cuerpo .= '<ul class"nuestro-menu">';
+    $cuerpo .= '<h2 class="titulo-menu">Nuestras Especialidades</h2>';
+    $cuerpo .= '<ul class="nuestro-menu">';
     foreach($especialidades as $esp):
         $post=get_post($esp['ID']);
         setup_postdata($post);

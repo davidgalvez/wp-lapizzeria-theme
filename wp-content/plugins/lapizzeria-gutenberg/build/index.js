@@ -304,7 +304,17 @@ __webpack_require__.r(__webpack_exports__);
         cantidadMostrar
       },
       setAttributes
-    } = props;
+    } = props; //verificar especialidades
+
+    if (!especialidades) {
+      return 'Cargando...';
+    } //si no hay especialidades
+
+
+    if (especialidades && especialidades.length === 0) {
+      return 'No hay resultados';
+    }
+
     return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_3__.InspectorControls, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__.PanelBody, {
       title: 'Cantidad a Mostrar',
       initialOpen: true
@@ -319,7 +329,9 @@ __webpack_require__.r(__webpack_exports__);
       min: 2,
       max: 10,
       value: cantidadMostrar
-    }))))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("h2", null, "Nuestras Especialidades"), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("ul", {
+    }))))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("h2", {
+      className: "titulo-menu"
+    }, "Nuestras Especialidades"), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("ul", {
       className: "nuestro-menu"
     }, especialidades.map(especialidad => (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("li", null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("img", {
       src: especialidad.imagen_destacada
