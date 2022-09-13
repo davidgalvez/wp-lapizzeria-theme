@@ -1,7 +1,7 @@
 import { registerBlockType } from '@wordpress/blocks';
 import { withSelect } from '@wordpress/data';
 import { RichText, InspectorControls } from '@wordpress/block-editor';
-import { PanelBody, RangeControl } from '@wordpress/components';
+import { PanelBody, RangeControl, SelectControl } from '@wordpress/components';
 
 // Logo para el bloque
 import { ReactComponent as Logo } from '../pizzeria-icon.svg';
@@ -28,6 +28,7 @@ registerBlockType('lapizzeria/menu', {
             setAttributes({cantidadMostrar:parseInt(nuevaCantidad)});            
         }
         return {
+            categorias: select("core").getEntityRecords('taxonomy','categoria-menu'),
             //Enviar una petición a la api
             especialidades: select("core").getEntityRecords('postType','especialidades',{
                 per_page:cantidadMostrar
@@ -36,8 +37,8 @@ registerBlockType('lapizzeria/menu', {
             props
         };
     })
-    (({especialidades,onChangeCantidadMostrar,props}) => {
-        console.log(especialidades);
+    (({categorias, especialidades,onChangeCantidadMostrar,props}) => {
+        console.log(categorias);
 
         //extraer los props
         const {attributes: {cantidadMostrar},setAttributes} = props;
@@ -51,6 +52,21 @@ registerBlockType('lapizzeria/menu', {
         if(especialidades && especialidades.length===0){
             return 'No hay resultados';
         }
+
+        //Verificar Categorias
+        if(!categorias){
+            return 'No hay categorias aun';
+        }
+
+        if(categorias && categorias.length===0){
+            return 'No hay resultados';
+        }
+
+        //Generamos los label y values de las categorias para mostralo en el panel body
+        categorias.forEach(categoria=>{
+            categoria['label']=categoria.name;
+            categoria['value']=categoria.id;
+        })
                 
 
         return (
@@ -71,6 +87,21 @@ registerBlockType('lapizzeria/menu', {
                                             max={10}
                                             value={cantidadMostrar}
 
+                                        />
+                                  </div>
+                            </div>                                    
+                      </PanelBody>
+                      <PanelBody                              
+                            title={'Categoria de Especialidad'}
+                            initialOpen={false}
+                      >   
+                            <div className='components-base-control'>
+                                  <div className='components-base-control__field'>
+                                        <label className='components-base-control__label'>
+                                        Categoria de Especialidad
+                                        </label>
+                                        <SelectControl 
+                                            options={ categorias }
                                         />
                                   </div>
                             </div>                                    

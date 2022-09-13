@@ -284,6 +284,7 @@ __webpack_require__.r(__webpack_exports__);
     };
 
     return {
+      categorias: select("core").getEntityRecords('taxonomy', 'categoria-menu'),
       //Enviar una petición a la api
       especialidades: select("core").getEntityRecords('postType', 'especialidades', {
         per_page: cantidadMostrar
@@ -293,11 +294,12 @@ __webpack_require__.r(__webpack_exports__);
     };
   })(_ref => {
     let {
+      categorias,
       especialidades,
       onChangeCantidadMostrar,
       props
     } = _ref;
-    console.log(especialidades); //extraer los props
+    console.log(categorias); //extraer los props
 
     const {
       attributes: {
@@ -313,8 +315,22 @@ __webpack_require__.r(__webpack_exports__);
 
     if (especialidades && especialidades.length === 0) {
       return 'No hay resultados';
+    } //Verificar Categorias
+
+
+    if (!categorias) {
+      return 'No hay categorias aun';
     }
 
+    if (categorias && categorias.length === 0) {
+      return 'No hay resultados';
+    } //Generamos los label y values de las categorias para mostralo en el panel body
+
+
+    categorias.forEach(categoria => {
+      categoria['label'] = categoria.name;
+      categoria['value'] = categoria.id;
+    });
     return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_3__.InspectorControls, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__.PanelBody, {
       title: 'Cantidad a Mostrar',
       initialOpen: true
@@ -329,6 +345,17 @@ __webpack_require__.r(__webpack_exports__);
       min: 2,
       max: 10,
       value: cantidadMostrar
+    })))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__.PanelBody, {
+      title: 'Categoria de Especialidad',
+      initialOpen: false
+    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+      className: "components-base-control"
+    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+      className: "components-base-control__field"
+    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("label", {
+      className: "components-base-control__label"
+    }, "Categoria de Especialidad"), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__.SelectControl, {
+      options: categorias
     }))))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("h2", {
       className: "titulo-menu"
     }, "Nuestras Especialidades"), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("ul", {
