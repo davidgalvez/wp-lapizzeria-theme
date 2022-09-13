@@ -87,7 +87,8 @@ function lapizzeria_registrar_bloques()
             )
         );
     }
-    
+
+    /**Registrar un bloque dinámico */
     lapizzeriaRegistrarBloqueDinamico();
 }
 
@@ -106,13 +107,17 @@ function lapizzeriaRegistrarBloqueDinamico()
 }
 
 /**Consulta la base de datos para mostrar los resultados en el front end*/
-function lapizzeriaEspecialiadesFrontEnd()
+function lapizzeriaEspecialiadesFrontEnd($atts)
 {
+    $cantidad=(count($atts)>0)?$atts['cantidadMostrar']:4;
+    /*echo "<pre>";
+    var_dump($atts);
+    echo "</pre>";*/
     $especialidades= wp_get_recent_posts(
         array(
             'post_type'=>'especialidades',
             'post_status'=>'publish',
-            'numberpost'=>10
+            'numberposts'=>$cantidad
         )
         );
     //revisar que tenga resultados
