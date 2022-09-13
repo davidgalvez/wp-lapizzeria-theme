@@ -17,31 +17,40 @@ registerBlockType('lapizzeria/menu', {
         {
             type: 'number',
             default: 4
+        },
+        categoriaMenu:
+        {
+            type: "number"
         }
     },
     edit: withSelect((select, props)=>{
 
         //extraer valores de atributos
-        const {attributes: {cantidadMostrar},setAttributes} = props;
+        const {attributes: {cantidadMostrar, categoriaMenu},setAttributes} = props;
         
         const onChangeCantidadMostrar = nuevaCantidad =>{
             setAttributes({cantidadMostrar:parseInt(nuevaCantidad)});            
+        }
+        const onChangeCategoriaMenu = nuevaCategoria =>{
+            setAttributes({categoriaMenu: nuevaCategoria})
         }
         return {
             categorias: select("core").getEntityRecords('taxonomy','categoria-menu'),
             //Enviar una petición a la api
             especialidades: select("core").getEntityRecords('postType','especialidades',{
+                'categoria-menu': categoriaMenu,
                 per_page:cantidadMostrar
             }),
             onChangeCantidadMostrar,
+            onChangeCategoriaMenu,
             props
         };
     })
-    (({categorias, especialidades,onChangeCantidadMostrar,props}) => {
+    (({categorias, especialidades,onChangeCantidadMostrar,onChangeCategoriaMenu, props}) => {
         console.log(categorias);
 
         //extraer los props
-        const {attributes: {cantidadMostrar},setAttributes} = props;
+        const {attributes: {cantidadMostrar, categoriaMenu},setAttributes} = props;
 
         //verificar especialidades
         if(!especialidades){
@@ -67,6 +76,11 @@ registerBlockType('lapizzeria/menu', {
             categoria['label']=categoria.name;
             categoria['value']=categoria.id;
         })
+
+        // Arreglo con valores por default
+        const opcionDefault = [{value:' ',label:'--Todos--'}];
+
+        const listadoCategorias= [...opcionDefault,...categorias];
                 
 
         return (
@@ -101,7 +115,9 @@ registerBlockType('lapizzeria/menu', {
                                         Categoria de Especialidad
                                         </label>
                                         <SelectControl 
-                                            options={ categorias }
+                                            options={ listadoCategorias }
+                                            onChange={onChangeCategoriaMenu}
+                                            value={categoriaMenu}
                                         />
                                   </div>
                             </div>                                    
