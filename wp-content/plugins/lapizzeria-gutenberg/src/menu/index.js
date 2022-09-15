@@ -1,7 +1,7 @@
 import { registerBlockType } from '@wordpress/blocks';
 import { withSelect } from '@wordpress/data';
 import { RichText, InspectorControls } from '@wordpress/block-editor';
-import { PanelBody, RangeControl, SelectControl } from '@wordpress/components';
+import { PanelBody, RangeControl, SelectControl, TextControl } from '@wordpress/components';
 
 // Logo para el bloque
 import { ReactComponent as Logo } from '../pizzeria-icon.svg';
@@ -118,6 +118,20 @@ registerBlockType('lapizzeria/menu', {
                                             options={ listadoCategorias }
                                             onChange={onChangeCategoriaMenu}
                                             value={categoriaMenu}
+                                        />
+                                  </div>
+                            </div>                                    
+                      </PanelBody>
+                      <PanelBody                              
+                            title={'Titulo BLoque'}
+                            initialOpen={false}
+                      >   
+                            <div className='components-base-control'>
+                                  <div className='components-base-control__field'>
+                                        <label className='components-base-control__label'>
+                                        Titulo BLoque
+                                        </label>
+                                        <TextControl 
                                         />
                                   </div>
                             </div>                                    
