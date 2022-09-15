@@ -21,6 +21,11 @@ registerBlockType('lapizzeria/menu', {
         categoriaMenu:
         {
             type: "number"
+        },
+        tituloBLoque:
+        {
+            type: "string",
+            default: "Titulo Bloque"
         }
     },
     edit: withSelect((select, props)=>{
@@ -34,6 +39,9 @@ registerBlockType('lapizzeria/menu', {
         const onChangeCategoriaMenu = nuevaCategoria =>{
             setAttributes({categoriaMenu: nuevaCategoria})
         }
+        const onChangeTituloBloque = nuevoTitulo =>{
+            setAttributes({tituloBLoque: nuevoTitulo})
+        }
         return {
             categorias: select("core").getEntityRecords('taxonomy','categoria-menu'),
             //Enviar una petición a la api
@@ -43,14 +51,15 @@ registerBlockType('lapizzeria/menu', {
             }),
             onChangeCantidadMostrar,
             onChangeCategoriaMenu,
+            onChangeTituloBloque,
             props
         };
     })
-    (({categorias, especialidades,onChangeCantidadMostrar,onChangeCategoriaMenu, props}) => {
+    (({categorias, especialidades,onChangeCantidadMostrar,onChangeCategoriaMenu,onChangeTituloBloque, props}) => {
         console.log(categorias);
 
         //extraer los props
-        const {attributes: {cantidadMostrar, categoriaMenu},setAttributes} = props;
+        const {attributes: {cantidadMostrar, categoriaMenu, tituloBLoque},setAttributes} = props;
 
         //verificar especialidades
         if(!especialidades){
@@ -132,12 +141,14 @@ registerBlockType('lapizzeria/menu', {
                                         Titulo BLoque
                                         </label>
                                         <TextControl 
+                                            onChange={onChangeTituloBloque}
+                                            value={tituloBLoque}
                                         />
                                   </div>
                             </div>                                    
                       </PanelBody>
                 </InspectorControls>
-                <h2 className="titulo-menu">Nuestras Especialidades</h2>
+                <h2 className="titulo-menu">{tituloBLoque}</h2>
                 <ul className='nuestro-menu'>
                     {especialidades.map(especialidad =>(
                         <li>

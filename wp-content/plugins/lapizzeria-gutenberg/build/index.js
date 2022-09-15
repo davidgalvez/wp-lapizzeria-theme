@@ -269,6 +269,10 @@ __webpack_require__.r(__webpack_exports__);
     },
     categoriaMenu: {
       type: "number"
+    },
+    tituloBLoque: {
+      type: "string",
+      default: "Titulo Bloque"
     }
   },
   edit: (0,_wordpress_data__WEBPACK_IMPORTED_MODULE_2__.withSelect)((select, props) => {
@@ -293,6 +297,12 @@ __webpack_require__.r(__webpack_exports__);
       });
     };
 
+    const onChangeTituloBloque = nuevoTitulo => {
+      setAttributes({
+        tituloBLoque: nuevoTitulo
+      });
+    };
+
     return {
       categorias: select("core").getEntityRecords('taxonomy', 'categoria-menu'),
       //Enviar una petición a la api
@@ -302,6 +312,7 @@ __webpack_require__.r(__webpack_exports__);
       }),
       onChangeCantidadMostrar,
       onChangeCategoriaMenu,
+      onChangeTituloBloque,
       props
     };
   })(_ref => {
@@ -310,6 +321,7 @@ __webpack_require__.r(__webpack_exports__);
       especialidades,
       onChangeCantidadMostrar,
       onChangeCategoriaMenu,
+      onChangeTituloBloque,
       props
     } = _ref;
     console.log(categorias); //extraer los props
@@ -317,7 +329,8 @@ __webpack_require__.r(__webpack_exports__);
     const {
       attributes: {
         cantidadMostrar,
-        categoriaMenu
+        categoriaMenu,
+        tituloBLoque
       },
       setAttributes
     } = props; //verificar especialidades
@@ -378,9 +391,21 @@ __webpack_require__.r(__webpack_exports__);
       options: listadoCategorias,
       onChange: onChangeCategoriaMenu,
       value: categoriaMenu
+    })))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__.PanelBody, {
+      title: 'Titulo BLoque',
+      initialOpen: false
+    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+      className: "components-base-control"
+    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+      className: "components-base-control__field"
+    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("label", {
+      className: "components-base-control__label"
+    }, "Titulo BLoque"), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__.TextControl, {
+      onChange: onChangeTituloBloque,
+      value: tituloBLoque
     }))))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("h2", {
       className: "titulo-menu"
-    }, "Nuestras Especialidades"), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("ul", {
+    }, tituloBLoque), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("ul", {
       className: "nuestro-menu"
     }, especialidades.map(especialidad => (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("li", null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("img", {
       src: especialidad.imagen_destacada
