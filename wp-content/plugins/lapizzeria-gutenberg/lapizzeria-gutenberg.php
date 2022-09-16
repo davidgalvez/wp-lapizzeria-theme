@@ -109,7 +109,19 @@ function lapizzeriaRegistrarBloqueDinamico()
 /**Consulta la base de datos para mostrar los resultados en el front end*/
 function lapizzeriaEspecialiadesFrontEnd($atts)
 {
-    $cantidad=(count($atts)>0 and isset($atts['cantidadMostrar']))?$atts['cantidadMostrar']:4;
+    
+    //Definimos valores iniciales para las variables de los atributos
+    $cantidad=(isset($atts['cantidadMostrar']))?$atts['cantidadMostrar']:4;
+    $titulo=(isset($atts['tituloBLoque']))?$atts['tituloBLoque']:'Nuestras Especialidades';
+    $taxonomy=array();
+    if(isset($atts['categoriaMenu']))
+    {
+        $taxonomy[]=array(
+            'taxonomy' => 'categoria-menu',
+            'terms' => $atts['categoriaMenu'],
+            'field' => 'term_id'
+        ) ;
+    }
     /*echo "<pre>";
     var_dump($atts);
     echo "</pre>";*/
@@ -118,13 +130,7 @@ function lapizzeriaEspecialiadesFrontEnd($atts)
             'post_type'=>'especialidades',
             'post_status'=>'publish',
             'numberposts'=>$cantidad,
-            'tax_query' => array(
-                array(
-                    'taxonomy' => 'categoria-menu',
-                    'terms' => $atts['categoriaMenu'],
-                    'field' => 'term_id'
-                )               
-            )
+            'tax_query' => $taxonomy
         )
         );
     //revisar que tenga resultados
@@ -134,7 +140,7 @@ function lapizzeriaEspecialiadesFrontEnd($atts)
     }
 
     $cuerpo='';
-    $cuerpo .= '<h2 class="titulo-menu">'.$atts['tituloBLoque'].'</h2>';
+    $cuerpo .= '<h2 class="titulo-menu">'.$titulo.'</h2>';
     $cuerpo .= '<ul class="nuestro-menu">';
     foreach($especialidades as $esp):
         $post=get_post($esp['ID']);
