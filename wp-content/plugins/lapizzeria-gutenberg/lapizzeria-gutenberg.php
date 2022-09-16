@@ -109,7 +109,7 @@ function lapizzeriaRegistrarBloqueDinamico()
 /**Consulta la base de datos para mostrar los resultados en el front end*/
 function lapizzeriaEspecialiadesFrontEnd($atts)
 {
-    $cantidad=(count($atts)>0)?$atts['cantidadMostrar']:4;
+    $cantidad=(count($atts)>0 and isset($atts['cantidadMostrar']))?$atts['cantidadMostrar']:4;
     /*echo "<pre>";
     var_dump($atts);
     echo "</pre>";*/
@@ -117,7 +117,14 @@ function lapizzeriaEspecialiadesFrontEnd($atts)
         array(
             'post_type'=>'especialidades',
             'post_status'=>'publish',
-            'numberposts'=>$cantidad
+            'numberposts'=>$cantidad,
+            'tax_query' => array(
+                array(
+                    'taxonomy' => 'categoria-menu',
+                    'terms' => $atts['categoriaMenu'],
+                    'field' => 'term_id'
+                )               
+            )
         )
         );
     //revisar que tenga resultados
@@ -127,7 +134,7 @@ function lapizzeriaEspecialiadesFrontEnd($atts)
     }
 
     $cuerpo='';
-    $cuerpo .= '<h2 class="titulo-menu">Nuestras Especialidades</h2>';
+    $cuerpo .= '<h2 class="titulo-menu">'.$atts['tituloBLoque'].'</h2>';
     $cuerpo .= '<ul class="nuestro-menu">';
     foreach($especialidades as $esp):
         $post=get_post($esp['ID']);
