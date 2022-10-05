@@ -163,7 +163,7 @@ function lapizzeriaEspecialiadesFrontEnd($atts)
             get_the_post_thumbnail($post,'especialidades'),
             get_the_title($post),
             get_field('precio',$post),
-            get_the_content($post)
+            substr(get_the_content($post),0,180)
         );
         wp_reset_postdata();
     endforeach;
