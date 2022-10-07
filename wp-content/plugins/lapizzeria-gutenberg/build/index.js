@@ -1,4 +1,4 @@
-/******/ (() => { // webpackBootstrap
+/******/ (function() { // webpackBootstrap
 /******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
 
@@ -6,12 +6,11 @@
 /*!*******************************!*\
   !*** ./src/pizzeria-icon.svg ***!
   \*******************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "ReactComponent": () => (/* binding */ SvgPizzeriaIcon),
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */   "ReactComponent": function() { return /* binding */ SvgPizzeriaIcon; }
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
@@ -26,7 +25,8 @@ var SvgPizzeriaIcon = function SvgPizzeriaIcon(props) {
     xmlns: "http://www.w3.org/2000/svg",
     width: 25.16,
     height: 23.954,
-    xmlSpace: "preserve"
+    xmlSpace: "preserve",
+    role: "img"
   }, props), _path || (_path = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("path", {
     fill: "#1B6606",
     d: "M-.405-1.612h27.09v27.255H-.405z"
@@ -38,7 +38,7 @@ var SvgPizzeriaIcon = function SvgPizzeriaIcon(props) {
 };
 
 
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjwhLS0gR2VuZXJhdG9yOiBBZG9iZSBJbGx1c3RyYXRvciAxNi4wLjAsIFNWRyBFeHBvcnQgUGx1Zy1JbiAuIFNWRyBWZXJzaW9uOiA2LjAwIEJ1aWxkIDApICAtLT4NCjwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMS4xLy9FTiIgImh0dHA6Ly93d3cudzMub3JnL0dyYXBoaWNzL1NWRy8xLjEvRFREL3N2ZzExLmR0ZCI+DQo8c3ZnIHZlcnNpb249IjEuMSIgaWQ9IkNhcGFfMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgeD0iMHB4IiB5PSIwcHgiDQoJIHdpZHRoPSIyNS4xNnB4IiBoZWlnaHQ9IjIzLjk1NHB4IiB2aWV3Qm94PSIwIDAgMjUuMTYgMjMuOTU0IiBlbmFibGUtYmFja2dyb3VuZD0ibmV3IDAgMCAyNS4xNiAyMy45NTQiIHhtbDpzcGFjZT0icHJlc2VydmUiPg0KPHJlY3QgeD0iLTAuNDA1IiB5PSItMS42MTIiIGZpbGw9IiMxQjY2MDYiIHdpZHRoPSIyNy4wOSIgaGVpZ2h0PSIyNy4yNTUiLz4NCjxnPg0KCTxwYXRoIGZpbGw9IiNGRkZGRkYiIGQ9Ik0yLjk2NSwxOC43ODRWNS4yMjhoMy4yOTN2MTAuNzAzaDUuMjQ2djIuODUzSDIuOTY1eiIvPg0KCTxwYXRoIGZpbGw9IiNGRkZGRkYiIGQ9Ik0yMy4zMTYsOS40MDJjMCwwLjc5Mi0wLjE0NiwxLjQ1OS0wLjQzOSwyLjAwMWMtMC4yOTQsMC41NDItMC42ODksMC45OC0xLjE4OCwxLjMxMg0KCQljLTAuNDk4LDAuMzMyLTEuMDcyLDAuNTc0LTEuNzIzLDAuNzI4Yy0wLjY1MSwwLjE1My0xLjMyOCwwLjIyOS0yLjAyOSwwLjIyOWgtMS42Mjd2NS4xMTJoLTMuMjc1VjUuMjI4aDQuOTc5DQoJCWMwLjc0LDAsMS40MzMsMC4wNzMsMi4wNzcsMC4yMmMwLjY0NSwwLjE0OCwxLjIwNiwwLjM4MywxLjY4NSwwLjcwOWMwLjQ3OSwwLjMyNSwwLjg1NSwwLjc1NCwxLjEzMSwxLjI4Mg0KCQlDMjMuMTgsNy45NjksMjMuMzE2LDguNjI0LDIzLjMxNiw5LjQwMnogTTIwLjA0Myw5LjQyYzAtMC4zMTktMC4wNjMtMC41ODEtMC4xOTEtMC43ODVzLTAuMy0wLjM2Mi0wLjUxNy0wLjQ3OA0KCQljLTAuMjE4LTAuMTE2LTAuNDYyLTAuMTkyLTAuNzM3LTAuMjI5Yy0wLjI3NC0wLjAzOS0wLjU1OS0wLjA1OC0wLjg1Mi0wLjA1OGgtMS40MzZ2My4xOTdoMS4zNzdjMC4zMDcsMCwwLjYwMS0wLjAyNSwwLjg4Mi0wLjA3Ng0KCQljMC4yOC0wLjA1MiwwLjUzMi0wLjE0MSwwLjc1Ni0wLjI2OWMwLjIyNC0wLjEyNywwLjM5OC0wLjI5NywwLjUyNi0wLjUwOEMxOS45NzksMTAuMDA1LDIwLjA0Myw5Ljc0MSwyMC4wNDMsOS40MnoiLz4NCjwvZz4NCjwvc3ZnPg0K");
+/* harmony default export */ __webpack_exports__["default"] = ("data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjwhLS0gR2VuZXJhdG9yOiBBZG9iZSBJbGx1c3RyYXRvciAxNi4wLjAsIFNWRyBFeHBvcnQgUGx1Zy1JbiAuIFNWRyBWZXJzaW9uOiA2LjAwIEJ1aWxkIDApICAtLT4NCjwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMS4xLy9FTiIgImh0dHA6Ly93d3cudzMub3JnL0dyYXBoaWNzL1NWRy8xLjEvRFREL3N2ZzExLmR0ZCI+DQo8c3ZnIHZlcnNpb249IjEuMSIgaWQ9IkNhcGFfMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgeD0iMHB4IiB5PSIwcHgiDQoJIHdpZHRoPSIyNS4xNnB4IiBoZWlnaHQ9IjIzLjk1NHB4IiB2aWV3Qm94PSIwIDAgMjUuMTYgMjMuOTU0IiBlbmFibGUtYmFja2dyb3VuZD0ibmV3IDAgMCAyNS4xNiAyMy45NTQiIHhtbDpzcGFjZT0icHJlc2VydmUiPg0KPHJlY3QgeD0iLTAuNDA1IiB5PSItMS42MTIiIGZpbGw9IiMxQjY2MDYiIHdpZHRoPSIyNy4wOSIgaGVpZ2h0PSIyNy4yNTUiLz4NCjxnPg0KCTxwYXRoIGZpbGw9IiNGRkZGRkYiIGQ9Ik0yLjk2NSwxOC43ODRWNS4yMjhoMy4yOTN2MTAuNzAzaDUuMjQ2djIuODUzSDIuOTY1eiIvPg0KCTxwYXRoIGZpbGw9IiNGRkZGRkYiIGQ9Ik0yMy4zMTYsOS40MDJjMCwwLjc5Mi0wLjE0NiwxLjQ1OS0wLjQzOSwyLjAwMWMtMC4yOTQsMC41NDItMC42ODksMC45OC0xLjE4OCwxLjMxMg0KCQljLTAuNDk4LDAuMzMyLTEuMDcyLDAuNTc0LTEuNzIzLDAuNzI4Yy0wLjY1MSwwLjE1My0xLjMyOCwwLjIyOS0yLjAyOSwwLjIyOWgtMS42Mjd2NS4xMTJoLTMuMjc1VjUuMjI4aDQuOTc5DQoJCWMwLjc0LDAsMS40MzMsMC4wNzMsMi4wNzcsMC4yMmMwLjY0NSwwLjE0OCwxLjIwNiwwLjM4MywxLjY4NSwwLjcwOWMwLjQ3OSwwLjMyNSwwLjg1NSwwLjc1NCwxLjEzMSwxLjI4Mg0KCQlDMjMuMTgsNy45NjksMjMuMzE2LDguNjI0LDIzLjMxNiw5LjQwMnogTTIwLjA0Myw5LjQyYzAtMC4zMTktMC4wNjMtMC41ODEtMC4xOTEtMC43ODVzLTAuMy0wLjM2Mi0wLjUxNy0wLjQ3OA0KCQljLTAuMjE4LTAuMTE2LTAuNDYyLTAuMTkyLTAuNzM3LTAuMjI5Yy0wLjI3NC0wLjAzOS0wLjU1OS0wLjA1OC0wLjg1Mi0wLjA1OGgtMS40MzZ2My4xOTdoMS4zNzdjMC4zMDcsMCwwLjYwMS0wLjAyNSwwLjg4Mi0wLjA3Ng0KCQljMC4yOC0wLjA1MiwwLjUzMi0wLjE0MSwwLjc1Ni0wLjI2OWMwLjIyNC0wLjEyNywwLjM5OC0wLjI5NywwLjUyNi0wLjUwOEMxOS45NzksMTAuMDA1LDIwLjA0Myw5Ljc0MSwyMC4wNDMsOS40MnoiLz4NCjwvZz4NCjwvc3ZnPg0K");
 
 /***/ }),
 
@@ -46,7 +46,7 @@ var SvgPizzeriaIcon = function SvgPizzeriaIcon(props) {
 /*!****************************!*\
   !*** ./src/boxes/index.js ***!
   \****************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _babel_runtime_helpers_extends__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/extends */ "./node_modules/@babel/runtime/helpers/esm/extends.js");
@@ -230,11 +230,48 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./src/galeria/index.js":
+/*!******************************!*\
+  !*** ./src/galeria/index.js ***!
+  \******************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _wordpress_blocks__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/blocks */ "@wordpress/blocks");
+/* harmony import */ var _wordpress_blocks__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_blocks__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _wordpress_editor__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @wordpress/editor */ "@wordpress/editor");
+/* harmony import */ var _wordpress_editor__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_wordpress_editor__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @wordpress/components */ "@wordpress/components");
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _pizzeria_icon_svg__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../pizzeria-icon.svg */ "./src/pizzeria-icon.svg");
+
+
+
+
+
+(0,_wordpress_blocks__WEBPACK_IMPORTED_MODULE_1__.registerBlockType)('lapizzeria/galeria', {
+  title: 'La Pizzeria Galeria',
+  icon: {
+    src: _pizzeria_icon_svg__WEBPACK_IMPORTED_MODULE_4__.ReactComponent
+  },
+  category: 'lapizzeria',
+  edit: props => {
+    return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("h1", null, "En el editor");
+  },
+  save: props => {
+    return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("h1", null, "En el frontend");
+  }
+});
+
+/***/ }),
+
 /***/ "./src/menu/index.js":
 /*!***************************!*\
   !*** ./src/menu/index.js ***!
   \***************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
@@ -430,7 +467,7 @@ __webpack_require__.r(__webpack_exports__);
 /*!************************!*\
   !*** external "React" ***!
   \************************/
-/***/ ((module) => {
+/***/ (function(module) {
 
 module.exports = window["React"];
 
@@ -440,7 +477,7 @@ module.exports = window["React"];
 /*!*************************************!*\
   !*** external ["wp","blockEditor"] ***!
   \*************************************/
-/***/ ((module) => {
+/***/ (function(module) {
 
 module.exports = window["wp"]["blockEditor"];
 
@@ -450,7 +487,7 @@ module.exports = window["wp"]["blockEditor"];
 /*!********************************!*\
   !*** external ["wp","blocks"] ***!
   \********************************/
-/***/ ((module) => {
+/***/ (function(module) {
 
 module.exports = window["wp"]["blocks"];
 
@@ -460,7 +497,7 @@ module.exports = window["wp"]["blocks"];
 /*!************************************!*\
   !*** external ["wp","components"] ***!
   \************************************/
-/***/ ((module) => {
+/***/ (function(module) {
 
 module.exports = window["wp"]["components"];
 
@@ -470,9 +507,19 @@ module.exports = window["wp"]["components"];
 /*!******************************!*\
   !*** external ["wp","data"] ***!
   \******************************/
-/***/ ((module) => {
+/***/ (function(module) {
 
 module.exports = window["wp"]["data"];
+
+/***/ }),
+
+/***/ "@wordpress/editor":
+/*!********************************!*\
+  !*** external ["wp","editor"] ***!
+  \********************************/
+/***/ (function(module) {
+
+module.exports = window["wp"]["editor"];
 
 /***/ }),
 
@@ -480,7 +527,7 @@ module.exports = window["wp"]["data"];
 /*!*********************************!*\
   !*** external ["wp","element"] ***!
   \*********************************/
-/***/ ((module) => {
+/***/ (function(module) {
 
 module.exports = window["wp"]["element"];
 
@@ -490,11 +537,11 @@ module.exports = window["wp"]["element"];
 /*!************************************************************!*\
   !*** ./node_modules/@babel/runtime/helpers/esm/extends.js ***!
   \************************************************************/
-/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+/***/ (function(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (/* binding */ _extends)
+/* harmony export */   "default": function() { return /* binding */ _extends; }
 /* harmony export */ });
 function _extends() {
   _extends = Object.assign ? Object.assign.bind() : function (target) {
@@ -543,59 +590,60 @@ function _extends() {
 /******/ 	
 /************************************************************************/
 /******/ 	/* webpack/runtime/compat get default export */
-/******/ 	(() => {
+/******/ 	!function() {
 /******/ 		// getDefaultExport function for compatibility with non-harmony modules
-/******/ 		__webpack_require__.n = (module) => {
+/******/ 		__webpack_require__.n = function(module) {
 /******/ 			var getter = module && module.__esModule ?
-/******/ 				() => (module['default']) :
-/******/ 				() => (module);
+/******/ 				function() { return module['default']; } :
+/******/ 				function() { return module; };
 /******/ 			__webpack_require__.d(getter, { a: getter });
 /******/ 			return getter;
 /******/ 		};
-/******/ 	})();
+/******/ 	}();
 /******/ 	
 /******/ 	/* webpack/runtime/define property getters */
-/******/ 	(() => {
+/******/ 	!function() {
 /******/ 		// define getter functions for harmony exports
-/******/ 		__webpack_require__.d = (exports, definition) => {
+/******/ 		__webpack_require__.d = function(exports, definition) {
 /******/ 			for(var key in definition) {
 /******/ 				if(__webpack_require__.o(definition, key) && !__webpack_require__.o(exports, key)) {
 /******/ 					Object.defineProperty(exports, key, { enumerable: true, get: definition[key] });
 /******/ 				}
 /******/ 			}
 /******/ 		};
-/******/ 	})();
+/******/ 	}();
 /******/ 	
 /******/ 	/* webpack/runtime/hasOwnProperty shorthand */
-/******/ 	(() => {
-/******/ 		__webpack_require__.o = (obj, prop) => (Object.prototype.hasOwnProperty.call(obj, prop))
-/******/ 	})();
+/******/ 	!function() {
+/******/ 		__webpack_require__.o = function(obj, prop) { return Object.prototype.hasOwnProperty.call(obj, prop); }
+/******/ 	}();
 /******/ 	
 /******/ 	/* webpack/runtime/make namespace object */
-/******/ 	(() => {
+/******/ 	!function() {
 /******/ 		// define __esModule on exports
-/******/ 		__webpack_require__.r = (exports) => {
+/******/ 		__webpack_require__.r = function(exports) {
 /******/ 			if(typeof Symbol !== 'undefined' && Symbol.toStringTag) {
 /******/ 				Object.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });
 /******/ 			}
 /******/ 			Object.defineProperty(exports, '__esModule', { value: true });
 /******/ 		};
-/******/ 	})();
+/******/ 	}();
 /******/ 	
 /************************************************************************/
 var __webpack_exports__ = {};
 // This entry need to be wrapped in an IIFE because it need to be isolated against other modules in the chunk.
-(() => {
+!function() {
 /*!**********************!*\
   !*** ./src/index.js ***!
   \**********************/
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _boxes__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./boxes */ "./src/boxes/index.js");
 /* harmony import */ var _menu__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./menu */ "./src/menu/index.js");
+/* harmony import */ var _galeria__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./galeria */ "./src/galeria/index.js");
 
 
-})();
 
+}();
 /******/ })()
 ;
 //# sourceMappingURL=index.js.map

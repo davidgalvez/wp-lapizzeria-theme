@@ -17,6 +17,7 @@ wp-content/plugins/*
 !wp-content/plugins/lapizzeria-gutenberg/
 !wp-content/plugins/lapizzeria-posttypes/
 wp-content/plugins/lapizzeria-gutenberg/node_modules/*
+wp-content/plugins/lapizzeria-gutenberg/package-lock.json
 #wp-content/plugins/lapizzeria-gutenberg/build/*
 
 

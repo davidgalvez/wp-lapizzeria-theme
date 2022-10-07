@@ -71,7 +71,8 @@ function lapizzeria_registrar_bloques()
     // Arreglo de bloques
     $blocks= 
     [
-        'lapizzeria/boxes'
+        'lapizzeria/boxes',
+        'lapizzeria/galeria'
     ];
 
     foreach($blocks as $block)
