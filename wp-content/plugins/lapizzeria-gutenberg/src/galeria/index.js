@@ -19,7 +19,7 @@ registerBlockType('lapizzeria/galeria',{
         const {attributes:{imagenes=[]}, setAttributes } = props;
 
         console.log("imagenes",imagenes);
-        
+
         const onSeleccionarNuevaImagen = nuevaImagen =>{
             const imagen ={
                 thumb: nuevaImagen.sizes.medium.url,
@@ -42,6 +42,15 @@ registerBlockType('lapizzeria/galeria',{
                         ) }
                     />
                 </MediaUploadCheck>
+
+                <h2 className='texto-primario'>Galería</h2>
+                <ul className='listado-imagenes'>
+                    {imagenes.map(imagen =>(
+                        <li className='imagen'>
+                            <img src={imagen.thumb} />
+                        </li>
+                    ))}
+                </ul>
             </div>
         );
     },

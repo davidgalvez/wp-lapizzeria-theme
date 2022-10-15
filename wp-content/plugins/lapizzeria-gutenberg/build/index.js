@@ -296,7 +296,15 @@ __webpack_require__.r(__webpack_exports__);
           onClick: open
         }, "Abrir libreria");
       }
-    })));
+    })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("h2", {
+      className: "texto-primario"
+    }, "Galer\xEDa"), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("ul", {
+      className: "listado-imagenes"
+    }, imagenes.map(imagen => (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("li", {
+      className: "imagen"
+    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("img", {
+      src: imagen.thumb
+    })))));
   },
   save: props => {
     return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("h1", null, "En el frontend");
