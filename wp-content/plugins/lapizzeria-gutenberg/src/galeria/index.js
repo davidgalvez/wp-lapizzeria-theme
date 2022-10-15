@@ -8,18 +8,33 @@ registerBlockType('lapizzeria/galeria',{
     title: 'La Pizzeria Galeria',
     icon: {src: Logo},
     category: 'lapizzeria',
+    attributes: {
+        imagenes: {
+            type: 'array'
+        }
+    },
     edit: props => {
         const ALLOWED_MEDIA_TYPES = [ 'image' ];
 
+        const {attributes:{imagenes=[]}, setAttributes } = props;
+
+        console.log("imagenes",imagenes);
+        
         const onSeleccionarNuevaImagen = nuevaImagen =>{
-            console.log("nueva Imagen",nuevaImagen);
+            const imagen ={
+                thumb: nuevaImagen.sizes.medium.url,
+                full: nuevaImagen.sizes.full.url,
+                id: nuevaImagen.id
+            }
+
+            setAttributes({imagenes: [...imagenes, imagen]})
+            
         }
         return(
             <div className='galeria-pizzeria'>
                 <MediaUploadCheck>
                     <MediaUpload
-                        onSelect={ onSeleccionarNuevaImagen /*( media ) =>
-                            console.log( 'selected ', media.title )*/
+                        onSelect={ onSeleccionarNuevaImagen 
                         }
                         allowedTypes={ ALLOWED_MEDIA_TYPES }                        
                         render={ ( { open } ) => (

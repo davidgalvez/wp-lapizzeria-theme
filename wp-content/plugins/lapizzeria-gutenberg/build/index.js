@@ -257,20 +257,36 @@ __webpack_require__.r(__webpack_exports__);
     src: _pizzeria_icon_svg__WEBPACK_IMPORTED_MODULE_4__.ReactComponent
   },
   category: 'lapizzeria',
+  attributes: {
+    imagenes: {
+      type: 'array'
+    }
+  },
   edit: props => {
     const ALLOWED_MEDIA_TYPES = ['image'];
+    const {
+      attributes: {
+        imagenes = []
+      },
+      setAttributes
+    } = props;
+    console.log("imagenes", imagenes);
 
     const onSeleccionarNuevaImagen = nuevaImagen => {
-      console.log("nueva Imagen", nuevaImagen);
+      const imagen = {
+        thumb: nuevaImagen.sizes.medium.url,
+        full: nuevaImagen.sizes.full.url,
+        id: nuevaImagen.id
+      };
+      setAttributes({
+        imagenes: [...imagenes, imagen]
+      });
     };
 
     return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
       className: "galeria-pizzeria"
     }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.MediaUploadCheck, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.MediaUpload, {
-      onSelect: onSeleccionarNuevaImagen
-      /*( media ) =>
-      console.log( 'selected ', media.title )*/
-      ,
+      onSelect: onSeleccionarNuevaImagen,
       allowedTypes: ALLOWED_MEDIA_TYPES,
       render: _ref => {
         let {
