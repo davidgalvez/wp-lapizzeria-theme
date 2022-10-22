@@ -15,4 +15,6 @@
     height: auto!important;
     padding: 0px!important;
 }
-
+.texto-primario{
+    color: var(--rojo);
+}
