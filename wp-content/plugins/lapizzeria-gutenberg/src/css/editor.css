@@ -40,3 +40,6 @@
 .borrar-imagen .dashicons {
     color: var(--blanco);
 }
+.lapizzeria-agregar-imagen {
+    margin: 0 auto;
+}
