@@ -20,6 +20,12 @@ registerBlockType('lapizzeria/galeria',{
 
         console.log("imagenes",imagenes);
 
+        const borrarImagen = imagenIdex => {
+            const nuevasImagenes = imagenes.filter((imagen,index) => index !== imagenIdex);
+            console.log("nuevasImagenes:",nuevasImagenes);
+            setAttributes({imagenes: nuevasImagenes});
+        }
+
         const onSeleccionarNuevaImagen = nuevaImagen =>{
             const imagen ={
                 thumb: nuevaImagen.sizes.medium.url,
@@ -45,9 +51,9 @@ registerBlockType('lapizzeria/galeria',{
 
                 <h2 className='texto-primario'>Galería</h2>
                 <ul className='listado-imagenes'>
-                    {imagenes.map(imagen =>(
+                    {imagenes.map((imagen, index) =>(
                         <li className='imagen'>
-                            <div className='borrar-imagen' onClick={ ()=>console.log("Eliminando...")}>
+                            <div className='borrar-imagen' onClick={ () => borrarImagen(index)}>
                                 <span className='dashicons dashicons-trash'></span>
                             </div>
                             <img src={imagen.thumb} />

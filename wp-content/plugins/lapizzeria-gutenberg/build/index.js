@@ -272,6 +272,14 @@ __webpack_require__.r(__webpack_exports__);
     } = props;
     console.log("imagenes", imagenes);
 
+    const borrarImagen = imagenIdex => {
+      const nuevasImagenes = imagenes.filter((imagen, index) => index !== imagenIdex);
+      console.log("nuevasImagenes:", nuevasImagenes);
+      setAttributes({
+        imagenes: nuevasImagenes
+      });
+    };
+
     const onSeleccionarNuevaImagen = nuevaImagen => {
       const imagen = {
         thumb: nuevaImagen.sizes.medium.url,
@@ -300,11 +308,11 @@ __webpack_require__.r(__webpack_exports__);
       className: "texto-primario"
     }, "Galer\xEDa"), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("ul", {
       className: "listado-imagenes"
-    }, imagenes.map(imagen => (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("li", {
+    }, imagenes.map((imagen, index) => (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("li", {
       className: "imagen"
     }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
       className: "borrar-imagen",
-      onClick: () => console.log("Eliminando...")
+      onClick: () => borrarImagen(index)
     }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", {
       className: "dashicons dashicons-trash"
     })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("img", {
