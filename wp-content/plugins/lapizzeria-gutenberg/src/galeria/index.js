@@ -47,6 +47,9 @@ registerBlockType('lapizzeria/galeria',{
                 <ul className='listado-imagenes'>
                     {imagenes.map(imagen =>(
                         <li className='imagen'>
+                            <div className='borrar-imagen' onClick={ ()=>console.log("Eliminando...")}>
+                                <span className='dashicons dashicons-trash'></span>
+                            </div>
                             <img src={imagen.thumb} />
                         </li>
                     ))}

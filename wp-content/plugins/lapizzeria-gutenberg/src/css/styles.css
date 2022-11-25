@@ -120,4 +120,5 @@ ul.listado-imagenes{
 }
 .imagen img{
     display: block;
+    width: 100%;
 }

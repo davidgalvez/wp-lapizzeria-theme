@@ -302,7 +302,12 @@ __webpack_require__.r(__webpack_exports__);
       className: "listado-imagenes"
     }, imagenes.map(imagen => (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("li", {
       className: "imagen"
-    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("img", {
+    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+      className: "borrar-imagen",
+      onClick: () => console.log("Eliminando...")
+    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", {
+      className: "dashicons dashicons-trash"
+    })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("img", {
       src: imagen.thumb
     })))));
   },

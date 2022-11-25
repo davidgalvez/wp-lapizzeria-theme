@@ -18,3 +18,25 @@
 .texto-primario{
     color: var(--rojo);
 }
+
+/**Galería **/
+.imagen{
+    position: relative;
+}
+.imagen .borrar-imagen{
+    display: flex;
+    position: absolute;
+    right: 1rem;
+    background-color: rgba(0,0,0,.75);
+    height: 3rem;
+    width: 3rem;
+    border-radius: 50%;
+    justify-content: center;
+    align-items: center;
+}
+.imagen .borrar-imagen:hover{
+    cursor: pointer;
+}
+.borrar-imagen .dashicons {
+    color: var(--blanco);
+}
