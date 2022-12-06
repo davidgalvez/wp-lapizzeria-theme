@@ -64,6 +64,25 @@ registerBlockType('lapizzeria/galeria',{
         );
     },
     save: props => {
-        return(<h1>En el frontend</h1>);
+        const{ attributes: {imagenes = []} } = props;
+        if(imagenes.length === 0){
+            return (
+                <p>No hay imágenes</p>
+            )
+        }
+
+        return(
+            <div className='galeria-pizzeria'>
+                <h2 className='texto-primario'>Galería</h2>
+                <ul className='listado-imagenes'>
+                    {imagenes.map(imagen =>(
+                        <li className='imagen'>                            
+                            <img src={imagen.thumb} />
+                        </li>
+                    ))}
+                </ul>
+
+            </div>           
+        )
     }
 })
