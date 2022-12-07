@@ -76,8 +76,10 @@ registerBlockType('lapizzeria/galeria',{
                 <h2 className='texto-primario'>Galería</h2>
                 <ul className='listado-imagenes'>
                     {imagenes.map(imagen =>(
-                        <li className='imagen'>                            
-                            <img src={imagen.thumb} />
+                        <li className='imagen'>   
+                            <a href={imagen.full} data-lightbox="galeria" >                         
+                                <img src={imagen.thumb} />
+                            </a>
                         </li>
                     ))}
                 </ul>

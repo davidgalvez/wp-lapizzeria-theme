@@ -338,9 +338,12 @@ __webpack_require__.r(__webpack_exports__);
       className: "listado-imagenes"
     }, imagenes.map(imagen => (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("li", {
       className: "imagen"
+    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("a", {
+      href: imagen.full,
+      "data-lightbox": "galeria"
     }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("img", {
       src: imagen.thumb
-    })))));
+    }))))));
   }
 });
 
