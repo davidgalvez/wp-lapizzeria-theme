@@ -360,7 +360,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _wordpress_blocks__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/blocks */ "@wordpress/blocks");
 /* harmony import */ var _wordpress_blocks__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_blocks__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _pizzeria_icon_svg__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../pizzeria-icon.svg */ "./src/pizzeria-icon.svg");
+/* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @wordpress/block-editor */ "@wordpress/block-editor");
+/* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @wordpress/components */ "@wordpress/components");
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _pizzeria_icon_svg__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../pizzeria-icon.svg */ "./src/pizzeria-icon.svg");
+
+
 
  //logo para el bloque
 
@@ -368,11 +374,43 @@ __webpack_require__.r(__webpack_exports__);
 (0,_wordpress_blocks__WEBPACK_IMPORTED_MODULE_1__.registerBlockType)('lapizzeria/hero', {
   title: 'La Pizzeria Hero',
   icon: {
-    src: _pizzeria_icon_svg__WEBPACK_IMPORTED_MODULE_2__.ReactComponent
+    src: _pizzeria_icon_svg__WEBPACK_IMPORTED_MODULE_4__.ReactComponent
   },
   category: 'lapizzeria',
   edit: props => {
-    return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("h1", null, "Editor");
+    const ALLOWED_MEDIA_TYPES = ['image'];
+    const {
+      attributes: {
+        imagenes = []
+      },
+      setAttributes
+    } = props;
+
+    const onSeleccionarNuevaImagen = nuevaImagen => {
+      const imagen = {
+        thumb: nuevaImagen.sizes.medium.url,
+        full: nuevaImagen.sizes.full.url,
+        id: nuevaImagen.id
+      };
+      setAttributes({
+        imagenes: [...imagenes, imagen]
+      });
+    };
+
+    return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+      className: "hero-block"
+    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.MediaUploadCheck, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.MediaUpload, {
+      onSelect: onSeleccionarNuevaImagen,
+      allowedTypes: ALLOWED_MEDIA_TYPES,
+      render: _ref => {
+        let {
+          open
+        } = _ref;
+        return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.Button, {
+          onClick: open
+        }, "Abrir libreria");
+      }
+    })));
   },
   save: props => {
     return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("h1", null, "Frontend");
