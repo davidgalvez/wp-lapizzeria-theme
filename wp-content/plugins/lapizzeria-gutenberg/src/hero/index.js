@@ -9,21 +9,24 @@ registerBlockType('lapizzeria/hero',{
     title: 'La Pizzeria Hero',
     icon: {src: Logo},
     category: 'lapizzeria',
+    attributes: {
+        imagenHero: {
+            type: 'string',
+            selector: '.hero-block'
+        }
+    },
     edit: props => {
         const ALLOWED_MEDIA_TYPES = [ 'image' ];
-        const {attributes:{imagenes=[]}, setAttributes } = props;
+        const {attributes:{imagenHero}, setAttributes } = props;
         const onSeleccionarNuevaImagen = nuevaImagen =>{
-            const imagen ={
-                thumb: nuevaImagen.sizes.medium.url,
-                full: nuevaImagen.sizes.full.url,
-                id: nuevaImagen.id
-            }
-
-            setAttributes({imagenes: [...imagenes, imagen]})
-            
+             setAttributes({imagenHero: nuevaImagen.sizes.full.url})            
         }
         return(
-            <div className='hero-block'>
+            <div 
+                className='hero-block'
+                style={{backgroundImage: `linear-gradient(rgba(0,0,0,.75), rgba(0,0,0,.75)), url( ${imagenHero} )`}}
+            
+            >
                 <MediaUploadCheck>
                     <MediaUpload 
                          onSelect={ onSeleccionarNuevaImagen 

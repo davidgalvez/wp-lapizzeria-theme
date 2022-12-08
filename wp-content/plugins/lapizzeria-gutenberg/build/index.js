@@ -377,28 +377,32 @@ __webpack_require__.r(__webpack_exports__);
     src: _pizzeria_icon_svg__WEBPACK_IMPORTED_MODULE_4__.ReactComponent
   },
   category: 'lapizzeria',
+  attributes: {
+    imagenHero: {
+      type: 'string',
+      selector: '.hero-block'
+    }
+  },
   edit: props => {
     const ALLOWED_MEDIA_TYPES = ['image'];
     const {
       attributes: {
-        imagenes = []
+        imagenHero
       },
       setAttributes
     } = props;
 
     const onSeleccionarNuevaImagen = nuevaImagen => {
-      const imagen = {
-        thumb: nuevaImagen.sizes.medium.url,
-        full: nuevaImagen.sizes.full.url,
-        id: nuevaImagen.id
-      };
       setAttributes({
-        imagenes: [...imagenes, imagen]
+        imagenHero: nuevaImagen.sizes.full.url
       });
     };
 
     return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-      className: "hero-block"
+      className: "hero-block",
+      style: {
+        backgroundImage: `linear-gradient(rgba(0,0,0,.75), rgba(0,0,0,.75)), url( ${imagenHero} )`
+      }
     }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.MediaUploadCheck, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.MediaUpload, {
       onSelect: onSeleccionarNuevaImagen,
       allowedTypes: ALLOWED_MEDIA_TYPES,
