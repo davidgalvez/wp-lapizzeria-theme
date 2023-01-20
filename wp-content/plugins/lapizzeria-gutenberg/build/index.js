@@ -381,13 +381,31 @@ __webpack_require__.r(__webpack_exports__);
     imagenHero: {
       type: 'string',
       selector: '.hero-block'
+    },
+    tituloHero: {
+      type: 'string',
+      source: 'html',
+      selector: '.hero-block h1'
+    },
+    textoHero: {
+      type: 'string',
+      source: 'html',
+      selector: '.hero-block p'
+    },
+    urlHero: {
+      type: 'string',
+      source: 'attribute',
+      attribute: 'href'
     }
   },
   edit: props => {
     const ALLOWED_MEDIA_TYPES = ['image'];
     const {
       attributes: {
-        imagenHero
+        imagenHero,
+        tituloHero,
+        textoHero,
+        urlHero
       },
       setAttributes
     } = props;
@@ -395,6 +413,24 @@ __webpack_require__.r(__webpack_exports__);
     const onSeleccionarNuevaImagen = nuevaImagen => {
       setAttributes({
         imagenHero: nuevaImagen.sizes.full.url
+      });
+    };
+
+    const onChageTitulo = nuevoTitulo => {
+      setAttributes({
+        tituloHero: nuevoTitulo
+      });
+    };
+
+    const onChageTexto = nuevoTexto => {
+      setAttributes({
+        textoHero: nuevoTexto
+      });
+    };
+
+    const onChangeUrl = nuevaUrl => {
+      setAttributes({
+        urlHero: nuevaUrl
       });
     };
 
@@ -414,7 +450,23 @@ __webpack_require__.r(__webpack_exports__);
           onClick: open
         }, "Abrir libreria");
       }
-    })));
+    })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("h1", {
+      className: "titulo"
+    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.RichText, {
+      placeholder: 'Agrega el Titulo del Hero',
+      onChange: onChageTitulo,
+      value: tituloHero
+    })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.RichText, {
+      placeholder: 'Agrega el Texto del Hero',
+      onChange: onChageTexto,
+      value: textoHero
+    })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("a", {
+      href: urlHero,
+      className: "boton boton-primario"
+    }, "Leer M\xE1s")), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.URLInputButton, {
+      onChange: onChangeUrl,
+      url: urlHero
+    }));
   },
   save: props => {
     return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("h1", null, "Frontend");

@@ -43,3 +43,39 @@
 .lapizzeria-agregar-imagen {
     margin: 0 auto;
 }
+
+/** Botones */
+.boton, .page-numbers{
+    padding: 1rem 3rem;
+    display:block;
+    flex: 1;
+    text-align: center;
+    font-size: 1.4rem;
+    font-weight: 700;
+    font-family: var(--fuenteHeadings);
+    text-transform: uppercase;
+    border-radius: .5rem;
+    border: none;
+
+}
+.boton:hover{
+    cursor: pointer;
+}
+@media (min-width: 768px){
+    .boton{
+        display: inline-block;
+        flex: 0 0 auto;
+    }
+    
+}
+.boton-primario{
+    background-color: var(--naranja);
+    color: var(--blanco);
+}
+.boton-secundario{
+    background-color: var(--rojo);
+    color: var(--blanco);
+}
+.boton-primario:hover, .boton-secundario:hover{
+    color: var(--blanco);
+}

@@ -1,5 +1,5 @@
 import { registerBlockType } from '@wordpress/blocks';
-import { MediaUpload, MediaUploadCheck  } from '@wordpress/block-editor';
+import { MediaUpload, MediaUploadCheck, RichText, URLInputButton  } from '@wordpress/block-editor';
 import { Button  } from '@wordpress/components';
 
 //logo para el bloque
@@ -13,13 +13,37 @@ registerBlockType('lapizzeria/hero',{
         imagenHero: {
             type: 'string',
             selector: '.hero-block'
+        },
+        tituloHero: {
+            type: 'string',
+            source: 'html',
+            selector: '.hero-block h1'            
+        },
+        textoHero: {
+            type: 'string',
+            source: 'html',
+            selector: '.hero-block p'    
+        },
+        urlHero: {
+            type: 'string',
+            source: 'attribute',
+            attribute: 'href'
         }
     },
     edit: props => {
         const ALLOWED_MEDIA_TYPES = [ 'image' ];
-        const {attributes:{imagenHero}, setAttributes } = props;
+        const {attributes:{imagenHero, tituloHero, textoHero, urlHero}, setAttributes } = props;
         const onSeleccionarNuevaImagen = nuevaImagen =>{
              setAttributes({imagenHero: nuevaImagen.sizes.full.url})            
+        }
+        const onChageTitulo =nuevoTitulo =>{
+            setAttributes({tituloHero: nuevoTitulo})
+        }
+        const onChageTexto =nuevoTexto =>{
+            setAttributes({textoHero: nuevoTexto})
+        }
+        const onChangeUrl = nuevaUrl =>{
+            setAttributes({urlHero: nuevaUrl})
         }
         return(
             <div 
@@ -37,6 +61,30 @@ registerBlockType('lapizzeria/hero',{
                         ) }
                     />
                 </MediaUploadCheck>
+
+                <h1 className='titulo'>
+                    <RichText 
+                        placeholder={'Agrega el Titulo del Hero'}
+                        onChange={onChageTitulo}
+                        value={tituloHero}
+
+                    />
+                </h1>
+                <p>
+                    <RichText 
+                        placeholder={'Agrega el Texto del Hero'}
+                        onChange={onChageTexto}
+                        value={textoHero}
+                    />
+                </p>
+
+                <div>
+                    <a href={urlHero} className="boton boton-primario">Leer Más</a>
+                </div>
+                <URLInputButton
+                    onChange={onChangeUrl}
+                    url={urlHero}
+                />
 
             </div>
         )
