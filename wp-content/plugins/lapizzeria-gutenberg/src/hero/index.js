@@ -90,8 +90,27 @@ registerBlockType('lapizzeria/hero',{
         )
     },
     save: props => {
+        //const ALLOWED_MEDIA_TYPES = [ 'image' ];
+        const {attributes:{imagenHero, tituloHero, textoHero, urlHero}, setAttributes } = props;
         return(
-            <h1>Frontend</h1>
+            <div 
+                className='hero-block'
+                style={{backgroundImage: `linear-gradient(rgba(0,0,0,.75), rgba(0,0,0,.75)), url( ${imagenHero} )`}}
+            
+            >
+                <h1 className='titulo'>
+                    <RichText.Content value={tituloHero} />
+                </h1>
+                <p>
+                    <RichText.Content value={textoHero} />
+                </p>
+
+                <div>
+                    <a href={urlHero} className="boton boton-primario">Leer Más</a>
+                </div>
+               
+
+            </div>
         )
     }
 
