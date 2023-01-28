@@ -79,3 +79,6 @@
 .boton-primario:hover, .boton-secundario:hover{
     color: var(--blanco);
 }
+.hero-block .components-button {
+    color: var(--blanco);
+}

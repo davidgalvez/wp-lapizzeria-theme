@@ -122,3 +122,15 @@ ul.listado-imagenes{
     display: block;
     width: 100%;
 }
+/** Hero block*/
+.hero-block{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 3rem;
+    background-size: cover;
+}
+.hero-block h1, .hero-block p{
+    color: var(--blanco);
+    margin: .5rem;
+}
