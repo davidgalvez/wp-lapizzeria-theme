@@ -1,5 +1,5 @@
 import { registerBlockType } from '@wordpress/blocks';
-import { MediaUpload, MediaUploadCheck, RichText, URLInputButton  } from '@wordpress/block-editor';
+import { useBlockProps, MediaUpload, MediaUploadCheck, RichText, URLInputButton, BlockControls, AlignmentToolbar  } from '@wordpress/block-editor';
 import { Button  } from '@wordpress/components';
 
 //logo para el bloque
@@ -28,11 +28,15 @@ registerBlockType('lapizzeria/hero',{
             type: 'string',
             source: 'attribute',
             attribute: 'href'
+        },
+        alinearContenido: {
+            type: 'string',
+            default: 'center'
         }
     },
     edit: props => {
         const ALLOWED_MEDIA_TYPES = [ 'image' ];
-        const {attributes:{imagenHero, tituloHero, textoHero, urlHero}, setAttributes } = props;
+        const {attributes:{imagenHero, tituloHero, textoHero, urlHero, alinearContenido}, setAttributes } = props;
         const onSeleccionarNuevaImagen = nuevaImagen =>{
              setAttributes({imagenHero: nuevaImagen.sizes.full.url})            
         }
@@ -45,12 +49,21 @@ registerBlockType('lapizzeria/hero',{
         const onChangeUrl = nuevaUrl =>{
             setAttributes({urlHero: nuevaUrl})
         }
+        const onChangeAlinearContenido = nuevaAlineacion =>{
+            setAttributes({alinearContenido: nuevaAlineacion})
+        }
         return(
-            <div 
+            <div {...useBlockProps()}
                 className='hero-block'
-                style={{backgroundImage: `linear-gradient(rgba(0,0,0,.75), rgba(0,0,0,.75)), url( ${imagenHero} )`}}
+                style={{backgroundImage: `linear-gradient(rgba(0,0,0,.75), rgba(0,0,0,.75)), url( ${imagenHero} )`, textAlign: alinearContenido}}
             
             >
+                <BlockControls>
+                    <AlignmentToolbar
+                        onChange={onChangeAlinearContenido}
+                        value={alinearContenido}
+                    />
+                </BlockControls>
                 <MediaUploadCheck>
                     <MediaUpload 
                          onSelect={ onSeleccionarNuevaImagen 
@@ -91,11 +104,11 @@ registerBlockType('lapizzeria/hero',{
     },
     save: props => {
         //const ALLOWED_MEDIA_TYPES = [ 'image' ];
-        const {attributes:{imagenHero, tituloHero, textoHero, urlHero}, setAttributes } = props;
+        const {attributes:{imagenHero, tituloHero, textoHero, urlHero, alinearContenido}, setAttributes } = props;
         return(
             <div 
                 className='hero-block'
-                style={{backgroundImage: `linear-gradient(rgba(0,0,0,.75), rgba(0,0,0,.75)), url( ${imagenHero} )`}}
+                style={{backgroundImage: `linear-gradient(rgba(0,0,0,.75), rgba(0,0,0,.75)), url( ${imagenHero} )`, textAlign: alinearContenido}}
             
             >
                 <h1 className='titulo'>
