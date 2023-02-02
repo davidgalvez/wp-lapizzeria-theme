@@ -32,11 +32,14 @@ registerBlockType('lapizzeria/hero',{
         alinearContenido: {
             type: 'string',
             default: 'center'
+        },
+        alturaHero:{
+            type: 'number'
         }
     },
     edit: props => {
         const ALLOWED_MEDIA_TYPES = [ 'image' ];
-        const {attributes:{imagenHero, tituloHero, textoHero, urlHero, alinearContenido}, setAttributes } = props;
+        const {attributes:{imagenHero, tituloHero, textoHero, urlHero, alturaHero, alinearContenido}, setAttributes } = props;
         const onSeleccionarNuevaImagen = nuevaImagen =>{
              setAttributes({imagenHero: nuevaImagen.sizes.full.url})            
         }
@@ -51,6 +54,9 @@ registerBlockType('lapizzeria/hero',{
         }
         const onChangeAlinearContenido = nuevaAlineacion =>{
             setAttributes({alinearContenido: nuevaAlineacion})
+        }
+        const onChangeAlturaHero = nuevaAltura =>{
+            setAttributes({alturaHero: nuevaAltura})
         }
         return(
             <>
@@ -69,7 +75,8 @@ registerBlockType('lapizzeria/hero',{
                                     max={700}
                                     min={300}
                                     step={10}
-                                    value={500}
+                                    value={ alturaHero || 500}
+                                    onChange={onChangeAlturaHero}
                                  />                               
                                 
                           </div>
@@ -78,7 +85,7 @@ registerBlockType('lapizzeria/hero',{
                 </InspectorControls>
                 <div {...useBlockProps()}
                     className='hero-block'
-                    style={{backgroundImage: `linear-gradient(rgba(0,0,0,.75), rgba(0,0,0,.75)), url( ${imagenHero} )`, textAlign: alinearContenido}}
+                    style={{backgroundImage: `linear-gradient(rgba(0,0,0,.75), rgba(0,0,0,.75)), url( ${imagenHero} )`, textAlign: alinearContenido, height:`${alturaHero || 500}px`}}
                 
                 >
                     <BlockControls>
@@ -128,11 +135,11 @@ registerBlockType('lapizzeria/hero',{
     },
     save: props => {
         //const ALLOWED_MEDIA_TYPES = [ 'image' ];
-        const {attributes:{imagenHero, tituloHero, textoHero, urlHero, alinearContenido}, setAttributes } = props;
+        const {attributes:{imagenHero, tituloHero, textoHero, urlHero, alturaHero, alinearContenido} } = props;
         return(
             <div 
                 className='hero-block'
-                style={{backgroundImage: `linear-gradient(rgba(0,0,0,.75), rgba(0,0,0,.75)), url( ${imagenHero} )`, textAlign: alinearContenido}}
+                style={{backgroundImage: `linear-gradient(rgba(0,0,0,.75), rgba(0,0,0,.75)), url( ${imagenHero} )`, textAlign: alinearContenido, height:`${alturaHero || 500}px`}}
             
             >
                 <h1 className='titulo'>

@@ -402,6 +402,9 @@ __webpack_require__.r(__webpack_exports__);
     alinearContenido: {
       type: 'string',
       default: 'center'
+    },
+    alturaHero: {
+      type: 'number'
     }
   },
   edit: props => {
@@ -412,6 +415,7 @@ __webpack_require__.r(__webpack_exports__);
         tituloHero,
         textoHero,
         urlHero,
+        alturaHero,
         alinearContenido
       },
       setAttributes
@@ -447,6 +451,12 @@ __webpack_require__.r(__webpack_exports__);
       });
     };
 
+    const onChangeAlturaHero = nuevaAltura => {
+      setAttributes({
+        alturaHero: nuevaAltura
+      });
+    };
+
     return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.Fragment, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_3__.InspectorControls, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__.PanelBody, {
       title: 'Altura Hero',
       initialOpen: true
@@ -461,12 +471,14 @@ __webpack_require__.r(__webpack_exports__);
       max: 700,
       min: 300,
       step: 10,
-      value: 500
+      value: alturaHero || 500,
+      onChange: onChangeAlturaHero
     }))))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("div", (0,_babel_runtime_helpers_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({}, (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_3__.useBlockProps)(), {
       className: "hero-block",
       style: {
         backgroundImage: `linear-gradient(rgba(0,0,0,.75), rgba(0,0,0,.75)), url( ${imagenHero} )`,
-        textAlign: alinearContenido
+        textAlign: alinearContenido,
+        height: `${alturaHero || 500}px`
       }
     }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_3__.BlockControls, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_3__.AlignmentToolbar, {
       onChange: onChangeAlinearContenido,
@@ -508,15 +520,16 @@ __webpack_require__.r(__webpack_exports__);
         tituloHero,
         textoHero,
         urlHero,
+        alturaHero,
         alinearContenido
-      },
-      setAttributes
+      }
     } = props;
     return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("div", {
       className: "hero-block",
       style: {
         backgroundImage: `linear-gradient(rgba(0,0,0,.75), rgba(0,0,0,.75)), url( ${imagenHero} )`,
-        textAlign: alinearContenido
+        textAlign: alinearContenido,
+        height: `${alturaHero || 500}px`
       }
     }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("h1", {
       className: "titulo"
