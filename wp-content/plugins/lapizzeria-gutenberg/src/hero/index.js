@@ -1,6 +1,6 @@
 import { registerBlockType } from '@wordpress/blocks';
-import { useBlockProps, MediaUpload, MediaUploadCheck, RichText, URLInputButton, BlockControls, AlignmentToolbar  } from '@wordpress/block-editor';
-import { Button  } from '@wordpress/components';
+import { useBlockProps, MediaUpload, MediaUploadCheck, RichText, URLInputButton, BlockControls, AlignmentToolbar, InspectorControls  } from '@wordpress/block-editor';
+import { Button, TextControl, PanelBody  } from '@wordpress/components';
 
 //logo para el bloque
 import { ReactComponent as Logo } from '../pizzeria-icon.svg';
@@ -53,53 +53,77 @@ registerBlockType('lapizzeria/hero',{
             setAttributes({alinearContenido: nuevaAlineacion})
         }
         return(
-            <div {...useBlockProps()}
-                className='hero-block'
-                style={{backgroundImage: `linear-gradient(rgba(0,0,0,.75), rgba(0,0,0,.75)), url( ${imagenHero} )`, textAlign: alinearContenido}}
-            
-            >
-                <BlockControls>
-                    <AlignmentToolbar
-                        onChange={onChangeAlinearContenido}
-                        value={alinearContenido}
-                    />
-                </BlockControls>
-                <MediaUploadCheck>
-                    <MediaUpload 
-                         onSelect={ onSeleccionarNuevaImagen 
-                         }
-                         allowedTypes={ ALLOWED_MEDIA_TYPES }
-                         render={ ( { open } ) => (
-                            <Button onClick={ open }>Abrir libreria</Button>
-                        ) }
-                    />
-                </MediaUploadCheck>
+            <>
+                <InspectorControls>
+                    <PanelBody
+                        title={'Altura Hero'}
+                        initialOpen={true}
+                    >
+                        <div className='components-base-control'>
+                          <div className='components-base-control__field'>
+                                <label className='components-base-control__label'>
+                                      Altura en Pixeles
+                                </label>
+                                <TextControl
+                                    type="number"
+                                    max={700}
+                                    min={300}
+                                    step={10}
+                                    value={500}
+                                 />                               
+                                
+                          </div>
+                        </div> 
+                    </PanelBody>
+                </InspectorControls>
+                <div {...useBlockProps()}
+                    className='hero-block'
+                    style={{backgroundImage: `linear-gradient(rgba(0,0,0,.75), rgba(0,0,0,.75)), url( ${imagenHero} )`, textAlign: alinearContenido}}
+                
+                >
+                    <BlockControls>
+                        <AlignmentToolbar
+                            onChange={onChangeAlinearContenido}
+                            value={alinearContenido}
+                        />
+                    </BlockControls>
+                    <MediaUploadCheck>
+                        <MediaUpload 
+                            onSelect={ onSeleccionarNuevaImagen 
+                            }
+                            allowedTypes={ ALLOWED_MEDIA_TYPES }
+                            render={ ( { open } ) => (
+                                <Button onClick={ open }>Abrir libreria</Button>
+                            ) }
+                        />
+                    </MediaUploadCheck>
 
-                <h1 className='titulo'>
-                    <RichText 
-                        placeholder={'Agrega el Titulo del Hero'}
-                        onChange={onChageTitulo}
-                        value={tituloHero}
+                    <h1 className='titulo'>
+                        <RichText 
+                            placeholder={'Agrega el Titulo del Hero'}
+                            onChange={onChageTitulo}
+                            value={tituloHero}
 
-                    />
-                </h1>
-                <p>
-                    <RichText 
-                        placeholder={'Agrega el Texto del Hero'}
-                        onChange={onChageTexto}
-                        value={textoHero}
-                    />
-                </p>
+                        />
+                    </h1>
+                    <p>
+                        <RichText 
+                            placeholder={'Agrega el Texto del Hero'}
+                            onChange={onChageTexto}
+                            value={textoHero}
+                        />
+                    </p>
 
-                <div>
-                    <a href={urlHero} className="boton boton-primario">Leer Más</a>
+                    <div>
+                        <a href={urlHero} className="boton boton-primario">Leer Más</a>
+                    </div>
+                    <URLInputButton
+                        onChange={onChangeUrl}
+                        url={urlHero}
+                    />
+
                 </div>
-                <URLInputButton
-                    onChange={onChangeUrl}
-                    url={urlHero}
-                />
-
-            </div>
+            </>
         )
     },
     save: props => {
