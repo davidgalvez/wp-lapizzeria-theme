@@ -405,7 +405,13 @@ __webpack_require__.r(__webpack_exports__);
     },
     alturaHero: {
       type: 'number'
+    },
+    align: {
+      type: 'string'
     }
+  },
+  supports: {
+    align: ['wide', 'full']
   },
   edit: props => {
     const ALLOWED_MEDIA_TYPES = ['image'];
@@ -524,14 +530,14 @@ __webpack_require__.r(__webpack_exports__);
         alinearContenido
       }
     } = props;
-    return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("div", {
+    return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("div", (0,_babel_runtime_helpers_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({}, (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_3__.useBlockProps)(), {
       className: "hero-block",
       style: {
         backgroundImage: `linear-gradient(rgba(0,0,0,.75), rgba(0,0,0,.75)), url( ${imagenHero} )`,
         textAlign: alinearContenido,
         height: `${alturaHero || 500}px`
       }
-    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("h1", {
+    }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("h1", {
       className: "titulo"
     }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_3__.RichText.Content, {
       value: tituloHero

@@ -7,6 +7,9 @@ function lappizeria_setup() {
     //Soporte a estilos por default de Gutenberg
     add_theme_support('wp-block-styles');
 
+    //Soporte a contenido completo
+    add_theme_support('align-wide');
+
     //Paleta de Colores del tema
     add_theme_support('editor-color-palette',array(
         array(

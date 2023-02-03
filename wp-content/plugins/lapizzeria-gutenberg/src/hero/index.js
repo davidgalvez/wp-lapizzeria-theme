@@ -35,7 +35,13 @@ registerBlockType('lapizzeria/hero',{
         },
         alturaHero:{
             type: 'number'
+        },
+        align:{
+            type: 'string'
         }
+    },
+    supports: {
+        align: ['wide', 'full']
     },
     edit: props => {
         const ALLOWED_MEDIA_TYPES = [ 'image' ];
@@ -138,6 +144,7 @@ registerBlockType('lapizzeria/hero',{
         const {attributes:{imagenHero, tituloHero, textoHero, urlHero, alturaHero, alinearContenido} } = props;
         return(
             <div 
+                {...useBlockProps()}
                 className='hero-block'
                 style={{backgroundImage: `linear-gradient(rgba(0,0,0,.75), rgba(0,0,0,.75)), url( ${imagenHero} )`, textAlign: alinearContenido, height:`${alturaHero || 500}px`}}
             
