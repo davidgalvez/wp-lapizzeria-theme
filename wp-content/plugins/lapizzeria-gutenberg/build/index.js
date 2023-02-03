@@ -500,7 +500,9 @@ __webpack_require__.r(__webpack_exports__);
           onClick: open
         }, "Abrir libreria");
       }
-    })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("h1", {
+    })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("div", {
+      className: "contenido-hero"
+    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("h1", {
       className: "titulo"
     }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_3__.RichText, {
       placeholder: 'Agrega el Titulo del Hero',
@@ -516,7 +518,7 @@ __webpack_require__.r(__webpack_exports__);
     }, "Leer M\xE1s")), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_3__.URLInputButton, {
       onChange: onChangeUrl,
       url: urlHero
-    })));
+    }))));
   },
   save: props => {
     //const ALLOWED_MEDIA_TYPES = [ 'image' ];
@@ -530,14 +532,16 @@ __webpack_require__.r(__webpack_exports__);
         alinearContenido
       }
     } = props;
-    return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("div", (0,_babel_runtime_helpers_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({}, (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_3__.useBlockProps)(), {
+    return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("div", {
       className: "hero-block",
       style: {
         backgroundImage: `linear-gradient(rgba(0,0,0,.75), rgba(0,0,0,.75)), url( ${imagenHero} )`,
         textAlign: alinearContenido,
         height: `${alturaHero || 500}px`
       }
-    }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("h1", {
+    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("div", {
+      className: "contenido-hero"
+    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("h1", {
       className: "titulo"
     }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_3__.RichText.Content, {
       value: tituloHero
@@ -546,7 +550,7 @@ __webpack_require__.r(__webpack_exports__);
     })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("div", null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("a", {
       href: urlHero,
       className: "boton boton-primario"
-    }, "Leer M\xE1s")));
+    }, "Leer M\xE1s"))));
   }
 });
 

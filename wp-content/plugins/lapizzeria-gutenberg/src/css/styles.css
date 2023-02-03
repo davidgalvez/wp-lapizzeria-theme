@@ -146,3 +146,7 @@ ul.listado-imagenes{
     margin-left  : -80px;
     margin-right : -80px;
 }
+.contenido-hero{
+    max-width: 1200px;
+    margin: 0 auto;
+}

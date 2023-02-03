@@ -111,29 +111,31 @@ registerBlockType('lapizzeria/hero',{
                         />
                     </MediaUploadCheck>
 
-                    <h1 className='titulo'>
-                        <RichText 
-                            placeholder={'Agrega el Titulo del Hero'}
-                            onChange={onChageTitulo}
-                            value={tituloHero}
+                    <div className='contenido-hero'>
+                        <h1 className='titulo'>
+                            <RichText 
+                                placeholder={'Agrega el Titulo del Hero'}
+                                onChange={onChageTitulo}
+                                value={tituloHero}
 
-                        />
-                    </h1>
-                    <p>
-                        <RichText 
-                            placeholder={'Agrega el Texto del Hero'}
-                            onChange={onChageTexto}
-                            value={textoHero}
-                        />
-                    </p>
+                            />
+                        </h1>
+                        <p>
+                            <RichText 
+                                placeholder={'Agrega el Texto del Hero'}
+                                onChange={onChageTexto}
+                                value={textoHero}
+                            />
+                        </p>
 
-                    <div>
-                        <a href={urlHero} className="boton boton-primario">Leer Más</a>
+                        <div>
+                            <a href={urlHero} className="boton boton-primario">Leer Más</a>
+                        </div>
+                        <URLInputButton
+                            onChange={onChangeUrl}
+                            url={urlHero}
+                        />
                     </div>
-                    <URLInputButton
-                        onChange={onChangeUrl}
-                        url={urlHero}
-                    />
 
                 </div>
             </>
@@ -144,22 +146,23 @@ registerBlockType('lapizzeria/hero',{
         const {attributes:{imagenHero, tituloHero, textoHero, urlHero, alturaHero, alinearContenido} } = props;
         return(
             <div 
-                {...useBlockProps()}
+                
                 className='hero-block'
                 style={{backgroundImage: `linear-gradient(rgba(0,0,0,.75), rgba(0,0,0,.75)), url( ${imagenHero} )`, textAlign: alinearContenido, height:`${alturaHero || 500}px`}}
             
             >
-                <h1 className='titulo'>
-                    <RichText.Content value={tituloHero} />
-                </h1>
-                <p>
-                    <RichText.Content value={textoHero} />
-                </p>
+                <div className='contenido-hero'>
+                    <h1 className='titulo'>
+                        <RichText.Content value={tituloHero} />
+                    </h1>
+                    <p>
+                        <RichText.Content value={textoHero} />
+                    </p>
 
-                <div>
-                    <a href={urlHero} className="boton boton-primario">Leer Más</a>
+                    <div>
+                        <a href={urlHero} className="boton boton-primario">Leer Más</a>
+                    </div>
                 </div>
-               
 
             </div>
         )
