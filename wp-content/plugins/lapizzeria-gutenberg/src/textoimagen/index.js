@@ -22,7 +22,12 @@ registerBlockType('lapizzeria/textoimagen',{
             type: 'string',
             source: 'html',
             selector: '.texto-ingredientes p'
-        }
+        },
+        urlBloque: {
+            type: 'string',
+            source: 'attribute',
+            attribute: 'href'
+        },
 
     },
     edit: ({attributes,setAttributes})=>{
@@ -39,6 +44,10 @@ registerBlockType('lapizzeria/textoimagen',{
         {
             setAttributes({textoBloque:nuevoTexto})
         } 
+        const onChangeUrl = (nuevaUrl)=>
+        {
+            setAttributes({urlBloque:nuevaUrl})
+        }
         return(
             <div { ...useBlockProps() } 
                 className='ingredientes-bloque' 
@@ -70,6 +79,13 @@ registerBlockType('lapizzeria/textoimagen',{
                                     value={attributes.textoBloque}
                                 />
                             </p>
+                            <div>
+                                <a href={attributes.urlBloque} className="boton boton-secundario">Leer Más</a>
+                            </div>
+                            <URLInputButton
+                                onChange={onChangeUrl}
+                                url={attributes.urlBloque}
+                            />
                     </div>
                     <div className='imagen-ingredientes'>
 

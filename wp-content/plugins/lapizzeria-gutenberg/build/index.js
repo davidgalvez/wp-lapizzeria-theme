@@ -796,6 +796,11 @@ __webpack_require__.r(__webpack_exports__);
       type: 'string',
       source: 'html',
       selector: '.texto-ingredientes p'
+    },
+    urlBloque: {
+      type: 'string',
+      source: 'attribute',
+      attribute: 'href'
     }
   },
   edit: _ref => {
@@ -820,6 +825,12 @@ __webpack_require__.r(__webpack_exports__);
     const onChageTexto = nuevoTexto => {
       setAttributes({
         textoBloque: nuevoTexto
+      });
+    };
+
+    const onChangeUrl = nuevaUrl => {
+      setAttributes({
+        urlBloque: nuevaUrl
       });
     };
 
@@ -853,7 +864,13 @@ __webpack_require__.r(__webpack_exports__);
       placeholder: "Agrega el texto del Hero",
       onChange: onChageTexto,
       value: attributes.textoBloque
-    }))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("div", {
+    })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("div", null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("a", {
+      href: attributes.urlBloque,
+      className: "boton boton-secundario"
+    }, "Leer M\xE1s")), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_3__.URLInputButton, {
+      onChange: onChangeUrl,
+      url: attributes.urlBloque
+    })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("div", {
       className: "imagen-ingredientes"
     })));
   },
