@@ -12,13 +12,33 @@ registerBlockType('lapizzeria/textoimagen',{
         imagenFondo: {
             type: 'string',
             selector: '.ingredientes-bloque'
+        },
+        tituloBloque: {
+            type: 'string',
+            source: 'html',
+            selector: '.texto-ingredientes h1'
+        },
+        textoBloque: {
+            type: 'string',
+            source: 'html',
+            selector: '.texto-ingredientes p'
         }
+
     },
     edit: ({attributes,setAttributes})=>{
         const ALLOWED_MEDIA_TYPES = [ 'image' ];
-        const onSeleccionarNuevaImagen = (nuevaImagen) =>{
-            setAttributes({imagenFondo: nuevaImagen.sizes.full.url})            
-       }
+        const onSeleccionarNuevaImagen = (nuevaImagen) =>
+        {
+            setAttributes({imagenFondo: nuevaImagen.sizes.full.url})  
+        }
+        const onChageTitulo = (nuevoTitulo)=>
+        {
+            setAttributes({tituloBloque:nuevoTitulo})
+        } 
+        const onChageTexto = (nuevoTexto)=>
+        {
+            setAttributes({textoBloque:nuevoTexto})
+        } 
         return(
             <div { ...useBlockProps() } 
                 className='ingredientes-bloque' 
@@ -36,7 +56,20 @@ registerBlockType('lapizzeria/textoimagen',{
                 </MediaUploadCheck>
                 <div className='contenido-ingredientes'>
                     <div className='texto-ingredientes'>
-
+                            <h1 className='titulo'>
+                                <RichText 
+                                    placeholder='Agrega el titulo del Hero'
+                                    onChange={onChageTitulo}
+                                    value={attributes.tituloBloque}
+                                />
+                            </h1>
+                            <p>
+                                <RichText 
+                                    placeholder='Agrega el texto del Hero'
+                                    onChange={onChageTexto}
+                                    value={attributes.textoBloque}
+                                />
+                            </p>
                     </div>
                     <div className='imagen-ingredientes'>
 

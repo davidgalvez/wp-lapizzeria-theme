@@ -786,6 +786,16 @@ __webpack_require__.r(__webpack_exports__);
     imagenFondo: {
       type: 'string',
       selector: '.ingredientes-bloque'
+    },
+    tituloBloque: {
+      type: 'string',
+      source: 'html',
+      selector: '.texto-ingredientes h1'
+    },
+    textoBloque: {
+      type: 'string',
+      source: 'html',
+      selector: '.texto-ingredientes p'
     }
   },
   edit: _ref => {
@@ -798,6 +808,18 @@ __webpack_require__.r(__webpack_exports__);
     const onSeleccionarNuevaImagen = nuevaImagen => {
       setAttributes({
         imagenFondo: nuevaImagen.sizes.full.url
+      });
+    };
+
+    const onChageTitulo = nuevoTitulo => {
+      setAttributes({
+        tituloBloque: nuevoTitulo
+      });
+    };
+
+    const onChageTexto = nuevoTexto => {
+      setAttributes({
+        textoBloque: nuevoTexto
       });
     };
 
@@ -821,7 +843,17 @@ __webpack_require__.r(__webpack_exports__);
       className: "contenido-ingredientes"
     }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("div", {
       className: "texto-ingredientes"
-    }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("div", {
+    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("h1", {
+      className: "titulo"
+    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_3__.RichText, {
+      placeholder: "Agrega el titulo del Hero",
+      onChange: onChageTitulo,
+      value: attributes.tituloBloque
+    })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("p", null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_3__.RichText, {
+      placeholder: "Agrega el texto del Hero",
+      onChange: onChageTexto,
+      value: attributes.textoBloque
+    }))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("div", {
       className: "imagen-ingredientes"
     })));
   },
