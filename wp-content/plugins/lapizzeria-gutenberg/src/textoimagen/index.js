@@ -13,6 +13,13 @@ registerBlockType('lapizzeria/textoimagen',{
             type: 'string',
             selector: '.ingredientes-bloque'
         },
+        imagenBloque: {
+            type: 'string',
+            source: 'attribute',
+            selector: '.imagen-ingredientes img',
+            attribute: 'src',
+            default: Logo
+        },
         tituloBloque: {
             type: 'string',
             source: 'html',
@@ -32,6 +39,10 @@ registerBlockType('lapizzeria/textoimagen',{
     },
     edit: ({attributes,setAttributes})=>{
         const ALLOWED_MEDIA_TYPES = [ 'image' ];
+        const onSeleccionarImagenBloque = (nuevaImagenBLoque) =>
+        {
+            setAttributes({imagenBloque: nuevaImagenBLoque.sizes.full.url})
+        }
         const onSeleccionarNuevaImagen = (nuevaImagen) =>
         {
             setAttributes({imagenFondo: nuevaImagen.sizes.full.url})  
@@ -59,7 +70,7 @@ registerBlockType('lapizzeria/textoimagen',{
                         }
                         allowedTypes={ ALLOWED_MEDIA_TYPES }
                         render={ ( { open } ) => (
-                            <Button onClick={ open }>Abrir libreria</Button>
+                            <Button onClick={ open }>Elegir imagen de fondo</Button>
                         ) }
                     />
                 </MediaUploadCheck>
@@ -88,7 +99,17 @@ registerBlockType('lapizzeria/textoimagen',{
                             />
                     </div>
                     <div className='imagen-ingredientes'>
-
+                        <img src={attributes.imagenBloque} />
+                        <MediaUploadCheck>
+                            <MediaUpload 
+                                onSelect={ onSeleccionarImagenBloque 
+                                }
+                                allowedTypes={ ALLOWED_MEDIA_TYPES }
+                                render={ ( { open } ) => (
+                                    <Button onClick={ open }>Elegir Imagen del bloque</Button>
+                                ) }
+                            />
+                        </MediaUploadCheck>
                     </div>
                 </div>
             </div> 

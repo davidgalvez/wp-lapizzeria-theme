@@ -787,6 +787,13 @@ __webpack_require__.r(__webpack_exports__);
       type: 'string',
       selector: '.ingredientes-bloque'
     },
+    imagenBloque: {
+      type: 'string',
+      source: 'attribute',
+      selector: '.imagen-ingredientes img',
+      attribute: 'src',
+      default: _pizzeria_icon_svg__WEBPACK_IMPORTED_MODULE_5__.ReactComponent
+    },
     tituloBloque: {
       type: 'string',
       source: 'html',
@@ -809,6 +816,12 @@ __webpack_require__.r(__webpack_exports__);
       setAttributes
     } = _ref;
     const ALLOWED_MEDIA_TYPES = ['image'];
+
+    const onSeleccionarImagenBloque = nuevaImagenBLoque => {
+      setAttributes({
+        imagenBloque: nuevaImagenBLoque.sizes.full.url
+      });
+    };
 
     const onSeleccionarNuevaImagen = nuevaImagen => {
       setAttributes({
@@ -848,7 +861,7 @@ __webpack_require__.r(__webpack_exports__);
         } = _ref2;
         return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__.Button, {
           onClick: open
-        }, "Abrir libreria");
+        }, "Elegir imagen de fondo");
       }
     })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("div", {
       className: "contenido-ingredientes"
@@ -872,7 +885,20 @@ __webpack_require__.r(__webpack_exports__);
       url: attributes.urlBloque
     })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("div", {
       className: "imagen-ingredientes"
-    })));
+    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("img", {
+      src: attributes.imagenBloque
+    }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_3__.MediaUploadCheck, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_3__.MediaUpload, {
+      onSelect: onSeleccionarImagenBloque,
+      allowedTypes: ALLOWED_MEDIA_TYPES,
+      render: _ref3 => {
+        let {
+          open
+        } = _ref3;
+        return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__.Button, {
+          onClick: open
+        }, "Elegir Imagen del bloque");
+      }
+    })))));
   },
   save: () => {
     return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("p", null, "Desde el front end");
