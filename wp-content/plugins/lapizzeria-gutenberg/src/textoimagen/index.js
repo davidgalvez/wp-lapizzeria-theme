@@ -115,9 +115,34 @@ registerBlockType('lapizzeria/textoimagen',{
             </div> 
         )
     },
-    save: () => {
+    save: ({attributes}) => {
         return(
-            <p>Desde el front end</p>
+            <div 
+                className='ingredientes-bloque' 
+                style={{ backgroundImage:`url(${attributes.imagenFondo})`}}
+            >
+                
+                <div className='contenido-ingredientes'>
+                    <div className='texto-ingredientes'>
+                            <h1 className='titulo'>
+                                <RichText.Content
+                                    value={attributes.tituloBloque}
+                                />
+                            </h1>
+                            <p>
+                                <RichText.Content
+                                    value={attributes.textoBloque}
+                                />
+                            </p>
+                            <div>
+                                <a href={attributes.urlBloque} className="boton boton-secundario">Leer Más</a>
+                            </div>                            
+                    </div>
+                    <div className='imagen-ingredientes'>
+                        <img src={attributes.imagenBloque} />                        
+                    </div>
+                </div>
+            </div> 
         )
     }
 });
