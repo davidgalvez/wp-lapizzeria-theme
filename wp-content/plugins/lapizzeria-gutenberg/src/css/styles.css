@@ -150,3 +150,24 @@ ul.listado-imagenes{
     max-width: 1200px;
     margin: 0 auto;
 }
+
+
+/*** Texto eImagen ***/
+.ingredientes-bloque{
+    background-size: cover;
+    padding: 8rem 2rem;
+
+}
+
+.texto-ingredientes h1, 
+.texto-ingredientes p{
+    color: var(--blanco);
+}
+
+@media(min-width: 768px) {
+    .contenido-ingredientes {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-column-gap: 2rem;
+    }
+}
