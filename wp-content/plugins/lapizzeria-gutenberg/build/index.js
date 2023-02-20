@@ -810,6 +810,9 @@ __webpack_require__.r(__webpack_exports__);
       attribute: 'href'
     }
   },
+  supports: {
+    align: ['wide', 'full']
+  },
   edit: _ref => {
     let {
       attributes,

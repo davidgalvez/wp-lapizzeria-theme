@@ -37,6 +37,9 @@ registerBlockType('lapizzeria/textoimagen',{
         },
 
     },
+    supports: {
+        align: ['wide', 'full']
+    },
     edit: ({attributes,setAttributes})=>{
         const ALLOWED_MEDIA_TYPES = [ 'image' ];
         const onSeleccionarImagenBloque = (nuevaImagenBLoque) =>
