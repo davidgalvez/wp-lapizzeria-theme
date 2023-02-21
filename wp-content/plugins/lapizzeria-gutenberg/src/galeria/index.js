@@ -1,5 +1,5 @@
 import { registerBlockType } from '@wordpress/blocks';
-import { MediaUpload, MediaUploadCheck  } from '@wordpress/block-editor';
+import { useBlockProps, MediaUpload, MediaUploadCheck  } from '@wordpress/block-editor';
 import { Button  } from '@wordpress/components';
 
 import { ReactComponent as Logo } from '../pizzeria-icon.svg';
@@ -37,7 +37,7 @@ registerBlockType('lapizzeria/galeria',{
             
         }
         return(
-            <div className='galeria-pizzeria'>
+            <div { ...useBlockProps() } className='galeria-pizzeria'>
                 <MediaUploadCheck>
                     <MediaUpload
                         onSelect={ onSeleccionarNuevaImagen 
