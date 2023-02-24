@@ -74,7 +74,8 @@ function lapizzeria_registrar_bloques()
         'lapizzeria/boxes',
         'lapizzeria/galeria',
         'lapizzeria/hero',
-        'lapizzeria/textoimagen'
+        'lapizzeria/textoimagen',
+        'lapizzeria/contenedor'
     ];
 
     foreach($blocks as $block)

@@ -174,3 +174,8 @@ ul.listado-imagenes{
         grid-column-gap: 2rem;
     }
 }
+
+/** Bloque contenedor **/
+.bloque-contendor {
+    min-height: 100rem;
+}
