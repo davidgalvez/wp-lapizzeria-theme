@@ -302,7 +302,7 @@ __webpack_require__.r(__webpack_exports__);
       }
     }))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("div", {
       className: "bloques-internos"
-    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("p", null, "Hola"))));
+    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_3__.InnerBlocks, null))));
   },
   save: _ref3 => {
     let {

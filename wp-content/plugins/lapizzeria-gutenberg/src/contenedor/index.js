@@ -1,5 +1,5 @@
 import { registerBlockType } from '@wordpress/blocks';
-import { useBlockProps, MediaUpload, MediaUploadCheck, RichText, URLInputButton, InspectorControls, ColorPalette, BlockControls, AlignmentToolbar } from '@wordpress/block-editor';
+import { useBlockProps, MediaUpload, MediaUploadCheck, InnerBlocks, BlockControls, AlignmentToolbar } from '@wordpress/block-editor';
 import { Button, PanelBody } from '@wordpress/components';
 // Logo para el bloque
 import { ReactComponent as Logo } from '../pizzeria-icon.svg';
@@ -40,8 +40,7 @@ registerBlockType('lapizzeria/contenedor',{
                     </MediaUploadCheck>                        
                     </div>
                     <div className='bloques-internos'>
-                        {/*TODO: Bloques Internos*/}
-                        <p>Hola</p>
+                        <InnerBlocks />
                     </div>
                 </div>
             </div>
