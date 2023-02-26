@@ -41,6 +41,7 @@ registerBlockType('lapizzeria/contenedor',{
                     </div>
                     <div className='bloques-internos'>
                         {/*TODO: Bloques Internos*/}
+                        <p>Hola</p>
                     </div>
                 </div>
             </div>
