@@ -48,7 +48,18 @@ registerBlockType('lapizzeria/contenedor',{
     },
     save: ({attributes}) => {
         return(
-            <h1>Front</h1>
+            <div  
+                className='bloque-contendor'
+                style={{ backgroundImage:`url(${attributes.imagenFondo})`}}
+            >
+                <div className='contenido-bloque'>
+                    <div className='imagen-fondo'>                                           
+                    </div>
+                    <div className='bloques-internos'>
+                        <InnerBlocks.Content />
+                    </div>
+                </div>
+            </div>
         )
 
     }
