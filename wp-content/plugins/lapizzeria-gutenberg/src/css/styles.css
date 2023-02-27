@@ -204,3 +204,11 @@ ul.listado-imagenes{
         grid-column: 2 / 3;
     }
 }
+
+.wpcf7 p label{
+    font-size: 2rem;
+}
+.wpcf7-form-control{
+    padding: 2rem;
+    border: 1px solid var(--grisClaro);
+}
