@@ -1,6 +1,6 @@
-This is a wordpress responsive theme for a pizza restaurant:
+# wp-lapizzeria-theme
 
-[![La Pizzeria theme](http://davidgalvez.260mb.net/wp-content/uploads/2023/03/LaPizzeriaHome-1.jpg "La Pizzeria theme")](http://davidgalvez.260mb.net/wp-content/uploads/2023/03/LaPizzeriaHome-1.jpg "La Pizzeria theme")
+This is a wordpress responsive theme for a pizza restaurant:
 
 #### Main Functionalities:
 
