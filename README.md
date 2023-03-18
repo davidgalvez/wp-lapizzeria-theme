@@ -2,6 +2,8 @@
 
 This is a wordpress responsive theme for a pizza restaurant:
 
+![FullHoleLaPizzeria](https://user-images.githubusercontent.com/5734353/226145402-89f26715-9ec0-411f-b755-e556c26d3318.jpg)
+
 #### Main Functionalities:
 
 - Custom Post Types and taxonomies for creating menu dishes including featured image and price custom field.
@@ -14,3 +16,4 @@ This is a wordpress responsive theme for a pizza restaurant:
 ##### This theme includes two plugins:
 - **lapizzeria-posttypes:** To add custom Post Types for menú dishes.
 - **lapizzeria-gutenberg:** To create all the custom Gutenberg blocks for the theme.
+
